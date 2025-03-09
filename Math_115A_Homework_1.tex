@@ -1,0 +1,273 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsfonts}
+\usepackage{enumitem}
+\usepackage{amsthm}
+\usepackage{mathabx}
+\usepackage{latexsym}
+
+\title{Homework 1}
+\author{Jaden Ho}
+\date{September 29, 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Homework 1}
+\begin{enumerate}
+    \item Prove that the product of two consecutive integers is even. \\
+    \\ We want to prove that the product of two consecutive integers is even.
+    \\
+    Proof: Assume that n and n + 1 are consecutive integers in which n is even and n + 1 is odd. Given by the definition of an even integer: n, n + 1 can be defined as such:
+    \begin{equation}
+        n = 2k, n + 1 = 2k + 1; k \in \mathbb{Z}
+    \end{equation}
+    Since n = 2k and n + 1 = 2k + 1, 
+    \begin{equation}
+        n * n + 1 = 2k * (2k + 1) = 4k^2 + 2k = 2(2k^2 + k)
+    \end{equation}
+
+    Hence, by the definition of an even integer, $2(2k^{2} + k)$ is an even integer. Thus, the product of two consecutive integers is even. \qedsymbol{}
+    
+    \item Prove that if n is an odd integer, then $n^{2} - 1$ is divisible by 8.\\
+
+    We want to prove the if n is an odd integer, then $n^2 -1$ is divisible by 8.
+    \\ 
+    Proof: Assume that n is an odd integer such that n can be defined as: 
+    \begin{equation}
+        n = 2k + 1, k \in \mathbb{Z}
+    \end{equation}
+    Then,
+    \begin{equation}
+        n^2 - 1 = (2k + 1)^2 - 1 = 4k^2 + 4k + 1 - 1 = 4k^2 + 4k
+    \end{equation}
+    \begin{equation}
+        4k^2 + 4k = 4(k^2 + k) = 4k(k + 1)
+    \end{equation}
+    \\
+    Given that we proved that the product two consecutive integers, which were even and odd, above is even. We can determine that k * (k + 1) is an even integer.
+    By definition of even integer:
+    \begin{equation}
+        k(k + 1) = 2q, q \in \mathbb{Z}
+    \end{equation}
+    Then, 
+    \begin{equation}
+        4k(k + 1) = 4(2q) = 8q 
+    \end{equation}
+    Since $n^2 - 1 = 8q$, $n^2 - 1$ is divisible by 8. Therefore, for any odd integer n, $n^2 + 1$ is divisible by 8. \qedsymbol{}
+
+    \item Prove that if x is a real number such that $x^5 + 5x^3 + 7x \geq x^4 + x^2 + 4$ then $x \geq 0$. \\
+    \\
+    We want to prove that if x is a real number such that $x^5 + 5x^3 + 7x \geq x^4 + x^2 + 4$ then $x \geq 0$. \\
+    Let's assume for the sake of contrapositive that $x < 0$, then $x^5 + 5x^3 + 7x < x^4 + x^2 + 4$. \\
+    \\
+    Proof: Suppose $x < 0$, then $x^5 < 0$. Also $5x^3 < 0$, because $x^3 < 0$ and $5 < 0$, meaning that their product would be less than 0. Similarly, 7x would also be $< 0$. 
+
+    The addition of negatives numbers is negative. Hence if $x < 0$, then $x^5 + 5x^3 + 7x < 0$. 
+
+    For the right hand side, $x^4$, $x^2$, and $4 > 0$, since the product of two negative numbers is positive. Since, the sum of positive numbers is positive, the right hand side of the inequality is positive. 
+
+    Hence, if $x < 0$, $x^5 + 5x^3 + 7x < 0$ and $x^4 + x^2 + 4 > 0$, then $x^5 + 5x^3 + 7x < x^4 + x^2 + 4$. 
+    Thus, our original claim: if x is a real number such that $x^5 + 5x^3 + 7x \geq x^4 + x^2 + 4$, then $x \geq 0$. \qedsymbol{}
+    
+    \item If x is a non-zero rational number and y is an irrational number, prove that xy is irrational. 
+    \\
+    \\
+    We want to prove that the product of a rational number and an irrational number is irrational. \\
+    Let x be a rational number such that $x = \frac{a}{b}$; for some integers, a and b; b $\neq$ 0. Let y $\in$ $\mathbb{R}$ $\backslash$ $\mathbb{Q}$. \\
+    \\
+    For the sake of contradiction, let's assume that if x is a non-zero rational number and y is a irrational number, but xy is a rational number such that $xy = \frac{c}{d}$; for some integers c and d; d $\neq$ 0.
+    Since:
+    \begin{equation}
+        x * y = xy = \frac{a}{b} * y = \frac{c}{d}
+    \end{equation}
+    \begin{equation}
+         y = \frac{cb}{ad}
+    \end{equation}
+
+    Therefore, y is a rational number and an irrational number. However, that is impossible since a number cannot be rational and irrational at the same time. Thus, if x is a non-zero rational number and y is an irrational number, then xy would be irrational. \qedsymbol{}
+    
+    \item Prove that $A \cup B \subseteq C $ if and only if $A \subseteq C$ and $B \subseteq C$.\\
+
+    We want to prove that both directions are true for this iff statement. \\
+    
+     \begin{enumerate}
+         \item Proof 1: If $A \cup B \subseteq C,$ then $A \subseteq C$ and $B \subseteq C$. \\
+         \\
+         FSOC, assume that if $A \cup B \subseteq C,$ then $A \nsubseteq C$ or $B \nsubseteq C$. Let x be an element in A, but not in C. 
+        That means $x \in A \cup B$, then $x \in C$. However, that is a contradiction since x cannot be in or not be in a set at the same time. 
+        Similarly, can be said if you let x be an element in B, but not in C. 
+        \\
+        Therefore, if $A \cup B \subseteq C,$ then $A \subseteq C$ and $B \subseteq C$.
+         \item Proof 2: If $A \subseteq C$ and $B \subseteq C$, then $A \cup B \subseteq C $.  \\
+         \\FSOC, assume that if $A \subseteq C$ and $B \subseteq C$, then $A \cup B \nsubseteq C$. Let x be an element in A and B. That means that x has to be in A and B and C as well. However, we reached a contradiction. x cannot be in and not in C at the same time. Hence, if $A \subseteq C$ and $B \subseteq C$, then $A \cup B \subseteq C $.
+            \\
+         \qedsymbol{}
+     \end{enumerate}
+    
+    \item Let f : A $\rightarrow$ B and g : B $\rightarrow$ C be functions. Prove that if g $\circ$ f is injective, then f is injective. \\
+
+    We want to prove that if $g \circ f$ is injective, then f is injective. \\
+    \\ Assume that g $\circ$ f is injective. By the definition of injective, if $g(f(x_1)) = g(f(x_2))$, then $f(x_1) = f(x_2)$, $x_1, x_2 \in A$. \\
+    Then $g \circ f(x_1)$ = $g \circ f(x_2)$. Since $g \circ f$ is injective, then $x_1 = x_2$. 
+    \qedsymbol{}
+
+    
+    \item Suppose that A and B are non-empty sets, and f : A $\rightarrow$ B is a function.
+    
+        \begin{enumerate}[label=(\Alph*)]
+            \item Prove that f is injective if and only if there exists a function \\g : B $\rightarrow$ A such that g(f(x)) = x for all x $\in$ A. \\
+            \\        
+            We want to prove both propositions are true for this iff statement. \\
+            Proof 1 ($\rightarrow$): \\If f is injective, then there exists a function g: B $\rightarrow$ A such that g(f(x)) = x for all x $\in$ A. 
+
+            Since f is injective, $f(x_1) = f(x_2)$, $x_1 = x_2 \in A$. \\
+            Then $x_1 = g \circ f(x_1) = g \circ f(x_2)$ which equals $x_2$. 
+            \\
+            \\
+            Proof 2 ($\leftarrow$): \\If there exists a function g : B $\rightarrow A$ such that g(f(x)) = x for all x $\in$ A, then f is injective.
+
+            Suppose that: $f(x_1) = f(x_2)$ for some $x_1, x_2$ $\in A$. \\
+            If you apply g to both sides, I can get:\\
+            \begin{equation}
+                g \circ f(x_1) = x_1 
+            \end{equation}
+            
+            \begin{equation}
+                g \circ f(x_2) = x_2
+            \end{equation}
+            Since $f(x_1) = f(x_2)$, we know that $x_1 = x_2$. \\ This means that f(x) is injective. 
+            Therefore, there exists a function g : B $\rightarrow A$ such that g(f(x)) = x for all x $\in$ A, then f is injective. 
+            
+            Hence, since we proved both propositions as true we can conclude that the entire proposition is true. \qedsymbol{}
+                        
+            \item Prove that f is surjective if and only if there exists a function \\h : B $\rightarrow$ A such that f(h(y)) = y for all y $\in$ B. \\
+            \\
+            We want to prove both claims are true for this iff statement.\\
+            Proof 1: ($\rightarrow$) \\
+            If f is surjective, then there exists a function h : B $\rightarrow$ A such that f(h(y)) = y for all y $\in$ B. 
+
+            Assume that f(a) is surjective, such that for every y $\in B$, there exists an a $\in A$. Let a = h(y)\\ 
+            \\
+            Then for each y $\in$ B, there exists an x $\in$ A such that f(a) = y. 
+            Since we assumed f(a) is surjective, for all y $\in$ B, f(h(y)) = f(a) = y.
+
+            Thus, if f is surjective then there exists a function h : B $\rightarrow$ A such that f(h(y)) = y for all y $\in$ B. \\
+
+            Proof 2:($\leftarrow$) \\
+            If there exists a a function h : B $\rightarrow$ A such that f(h(y)) = y for all y $\in B.$, then f is surjective. \\
+            Suppose y is an element in B. In addition, assume that for function h, that f(h(y)) = y.
+
+            Since y $\in B$, there exists b = h(y) $\in$ A s.t. f(b) = y. Hence, for every $y \in B,$ there exists an b $\in A$ such that $f(b) = y$. 
+
+            By definition of surjective functions, f(b) must be surjective.
+
+            Hence, both propositions have been proven. \qedsymbol{}
+            \\
+            
+            \item Prove that if f is both injective and surjective, then there exists a unique function g : B $\rightarrow$ A such that g(f(x)) = x for all x $\in$ A and f(g(y)) = y for all y $\in$ B. \\ \\
+            Assume that f: $A \rightarrow B$ is bijective such that $f(x_1) = f(x_2),$ then $x_1 = x_2$. In addition, for all y in B, there exists an x in A such that f(x) = y.\\
+            \\
+            Proof: \\ 
+            Since we know that bijective functions are invertible, we can define g: $B \rightarrow A$ to be: $g(y) = f^{-1}(y)$. By definition of inverse, we can compute that 
+            $g(f(x)) = f^{-1}(f(x)) = x$. Hence, g(f(x)) for all x $\in A$.
+            \\
+            Similarly, for y, we can compute that:
+            $f(g(y)) = f(f^{-1}(y)) = y$. 
+
+            Hence, if f is bijective, then there exists a unique function g : B $\rightarrow$ A such that g(f(x)) = x for all x $\in$ A and f(g(y)) = y for all y $\in$ B. \qedsymbol{} 
+        \end{enumerate}
+    \item Prove that $\mathbb{C}$ is a field. \\
+    We want to prove that the set of complex numbers satisfies all the field axioms. 
+    
+    Let $x = a + bi$ and $y = c + di$ and $x = e + fi$, such that a, b, c, d, e, f are $\in \mathbb{R}$.
+
+    Proof: We proceed to prove by cases by proving axioms: \\
+    \\
+    Commutative Property: \\
+    $x + y = $ \\
+    $(a + bi) + (c + di) =$ \\
+    $(a + c) + (b + d)i $
+    By the definition of community property under real numbers, we can switch the a,b,c,d like this:
+    $(c + a) + (d + b)i$ which is equal to y + x. \\ \\
+    
+    $xy = (a + bi) * (c + di) = ac + adi + bci + (-1) * bd$
+    $= (ac - bd) + (ad + bc)i = c(a + bi) + d(-b + a) = c(a + bi) + di(a + bi)) = \\$
+    $(c + di)(a + bi) = yx$
+
+    Therefore, complex numbers hold under commutative property. 
+
+    Associative Property:
+    x + y + z = \\
+    (x + y) + z = ((a + bi) + (c + di)) + e + fi 
+    = (a + c + e) + (b + d + f)i = a + (c + e) + (b + (d + f))i
+    \\= (a + bi) + ((c + e) + (d + f)i)   (By associative property of real numbers)
+    = x + (y + z) 
+
+    Identity Property:\\
+    Assume that for every x, there exists a complex number 0 + 0i in which x + 0 = x.
+    We know that for complex numbers that 0 + 0i can be written as zero. 
+    (a + bi) + (0 + 0i) \\ Since we know the product of real number and 0 is 0: 
+    = (a + bi) + (0 + 0i) = (a + 0) + (bi + 0) = a + bi
+
+    Assume that for every x, there exists a number 1 in which 1 * x = x.
+    Based on the definition of distributive property for real numbers: \\
+    1 * (a + bi) = 1 * a + 1 * bi = a + bi \\
+
+    Inverse Identity: \\
+    For each element x in F, there exists elements s and t such that: \\
+    $x + s = 0$ and $x * t = 0$.
+    
+    \begin{equation}
+        (a + bi) + (-a - bi) = 0 + 0i = 0
+    \end{equation}
+    Hence, the additive identity exists. 
+
+    For the multiplicative identity, let t = 
+    \begin{equation}
+        \frac{a}{a^2 + b^2} - \frac{bi}{a^2 + b^2}
+    \end{equation}
+    such that a, b $\in \mathbb{R}$ 
+    \begin{equation}
+        x * t = a + bi * (\frac{a}{a^2 + b^2} - \frac{bi}{a^2 + b^2})
+    \end{equation}
+    \begin{equation}
+        = \frac{a * a}{a^2 + b^2} - i^2 * \frac{b*b}{a^2 + b^2}
+    \end{equation}
+    \begin{equation}
+        = \frac{a^2+b^2}{a^2 + b^2} = 1
+    \end{equation}
+    Hence, the multiplicative inverse exists.
+
+    Distribution property:
+    Let's use x, y, z again. 
+    \begin{equation}
+        x * (y + z) = (a + bi) * ((c + di) + (e + fi))
+    \end{equation}
+    By communative property:
+    \begin{equation}
+        (a + bi) * ((c + e) + (d + f)i)
+    \end{equation}
+    Since we treat we know c + e and d + f $\in \mathbb{R}$, we can treat it as another complex number and use property of multiplication:
+    \begin{equation}
+        a * (c + e) + (b * (d + f))i
+    \end{equation}
+    By definition of distribution in real numbers, 
+    \begin{equation}
+        = a * c + a * e + (b * d + b * f)i  
+    \end{equation}
+    By commutative property: 
+    \begin{equation}
+        = a * c + (b * d)i + a * e + (b * f)i
+    \end{equation}
+    This can be simplified due to the property of multiplication for complex numbers to:
+    \begin{equation}
+        =xy + xz
+    \end{equation}
+
+    Hence, this satisfies the distributivity property for fields.
+
+    Since, all the axioms are satisfied, the set of complex numbers is a field. \qedsymbol{}
+\end{enumerate}
+\end{document}
