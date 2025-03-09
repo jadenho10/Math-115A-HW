@@ -1,0 +1,505 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsfonts}
+\usepackage{enumitem}
+\usepackage{amsthm}
+\usepackage{mathabx}
+\usepackage{latexsym}
+\usepackage{amsmath}
+
+\title{Homework 2}
+\author{Jaden Ho}
+\date{September 29, 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Homework 2}
+
+\begin{enumerate}
+    \item (Section 1.2 Question 1abcd) 
+        \begin{enumerate}[label=(\alph*)]
+            \item True. The zero vector must be in a vector space.
+            \item False. The zero vector is unique.
+            \item False. Counterexample: x can be the zero vector which means a and b don't have to be equal to each other.
+            \item False. Scalar a can be zero which means you can have two arbitrary vectors x, y such that ax = ay. 
+        \end{enumerate} 
+    \item (Section 1.2 Question 8)
+        Show that $(a + b)(x + y) = ax + ay + bx + by$. 
+        Since a + b $\in$ F, we can use distributive property for vector spaces. \\
+        $(a + b)x + (a + b)y = ax + bx + ay + by$  (VS 7 distributive property) 
+        $= ax + ay + bx + by$ (VS 1 commutativity of addition). 
+        
+        Hence, $(a + b)(x + y) = ax + ay + bx + by$. \qedsymbol{}
+
+    \item (Section 1.2 Question 13) 
+        Let V denote the set of ordered pairs of real numbers. If $(a_1, a_2)$ and $(b_1, b_2)$ are elements of V and $c \in \mathbb{R}$, define \\
+        $(a_1, a_2) + (b_1, b_2) = (a_1 + b_1, a_2b_2)$ and $c(a_1, b_1) = (ca_1, a_2)$. Is V a vector space in $\mathbb{R}$ with these operations? Justify your answer. \\ \\
+        WTS if V is a vector space or not by checking the axioms.
+
+        Commutative property: \\
+        a + b = b + a \\
+        $(a_1, a_2) + (b_1, b_2) = (b_1, b_2) + (a_1, a_2)$ \\
+        $(a_1 + b_1, a_1b_1) = (b_1 + a_1, b_1a_1)$
+
+        This set holds for commutative property. 
+
+        Associativity of addition: \\
+        Let $c = (c_1, c_2)$. 
+        
+        Then, $(a + b) + c = (a_1 + b_1, a_2 + b_2) + (c_1, c_2) = (a_1 + b_1 + c_1, a_1b_1c_1)$
+
+        $a + (b + c) = (a_1, a_2) + (b_1 + c_1, b_2 + c_2) = (a_1 + b_1 + c_1, a_1*(b_1 * c_1) = (a_1 + b_1 + c_1, a_1b_1c_1)$ 
+
+        This set holds under associativity of addition.
+        
+        Additive identity:
+        For $a + 0 = a$, there exists an element 0 such that $(a_1, a_2) + 0 = (a_1, a_2)$. If 0 = (0, 0), then $(a_1, a_2) + (0, 0) = (a_1 + b_1, 0)$
+
+        This set does not hold under additive identity since the sum of an element with the zero vector doesn't equal the element. 
+
+        Additive Inverse:
+        For every a, there exists a d such that a + d = 0. 
+        Let (0,0) be the zero vector.
+        Let d = $(-a_1, -a_2)$ \\
+        $(a_1, a_2) + (-a_1, -a_2) = (0, -a^2)$.
+
+        Since $(0, -a^2) \neq (0,0)$, the set doesn't hold under additive inverse.
+        
+        Scalar of 1:
+        $1 * a = (1 * a_1, a_2) = (a_1, a_2) = a$
+
+        Associativity of Multiplication:
+        Let i, j be scalars $\in \mathbb{R}$ \\
+        (i * j) * a = $(ija_1, a_2)$ \\
+        i * (j * a) = $i * (ja_1, a_2) = (ija_1, a_2)$
+        
+        Since both match up, they hold under under associativity of multiplication. 
+
+        Distributive Property: 
+        Let f be a scalar in $\mathbb{R}$. 
+        $f(a + b) = f * (a_1 + b_1, a_2b_2) = (fa_1 + fb_1, a_2b_2)$ 
+        $fa + fb = f(a_1, a_2) + f(b_1, b_2) = (fa_1, a_2) + (fb_1, b_2) = (fa_1 + fb_1, a_2b_2)$
+
+        The set holds under distribution.
+
+        For distributive property for scalars, we will use i and j again. \\
+        $(i + j) * a = ((i + j)a_1, a_2^2)$ \\
+        $(i + j) * a = ia + ja = i(a_1, a_2) + j(a_1, a_2) = (ia_1 + a_2) + (ja_1 + a_2) = ((i + j)a_1, a_2^2)$ 
+
+        Since both statements match, this set holds under distributive property. 
+
+        Hence, V is not a vector space over $\mathbb{R}$ due to having no zero vector and no additive inverse.
+
+        \qedsymbol{}
+        
+    \item (Section 1.2 Question 17) \\
+        Let V = ${(a_1, a_2): a_1, a_2 \in F},$ where F is a field. Define addition of elements of V coordinatewise, and for $c \in F$ and $(a_1, a_2) \in V$, define $c(a_1, a_2) = (a_1, 0)$. Is V a vector space with thesse operations? \\
+        \\
+        WTS that V is a vector space or not by verifying the VS axioms.\\
+        Let $a = (a_1, a_2)$ and $b = (b_1, b_2)$. \\
+        Commutative Property:
+        $a + b = (a_1, a_2) + (b_1, b_2) = (a_1 + b_1, a_2 + b_2) = (b_1 + a_1, b_2 + a_2) = b + a$. 
+        Hence, V holds under commutative property. \\
+
+        Let $c = (c_1, c_2)$. \\
+        Associative Property:
+        $(a + b) + c = (a_1 + b_1, a_2 + b_2) + (c_1, c_2) = (a_1 + b_1 + c_1, a_2 + b_2 + c_2) = (a_1, a_2) + (b_1 + c_1, b_2 + c_2) = a + (b + c)$
+        
+        Hence, V holds under associative property of addition.
+
+        Additive Identity: 
+        $a + 0 = a$. Since by nature, (0, 0) is the zero vector, $(a_1, a_2) + (0,0) = (a_1, a_2)$. 
+
+        Hence, V has the zero vector.
+
+        Additive Inverse:
+        $a + (-a) = 0 = (a_1, a_2) + (-a_1, -a_2) = (a_1 - a_1, a_2 - a_2) = (0, 0)$ \\
+        Hence, for every a, there exists an -a such that a + (-a) = 0. 
+
+        Scalar of One:
+        $1 * a = 1 * (a_1, a_2) = (a_1, 0) \neq (a_1, a_2)$.
+        Hence, a does not hold under scalar multiplication.
+
+        V is not a vector field since it doesn't hold under scalar multiplication. \qedsymbol{}
+        
+        
+    \item (Section 1.2 Question 21) \\
+        $Z = {(v, w): v \in V, w \in W}$ \\
+        V, W are vector spaces.
+        Prove that Z is a vector space over F with the operations \\
+        $(v_1, w_1) + (v_2, w_2) = (v_1 + v_2, w_1 + w_2)$ and $c(v_1, w_1) = (cv_1, cw_1)$
+        
+        To prove that Z is a vector space over F, we need to prove that Z satisfies every vector space axiom. 
+        
+        Assume that V, W are vector spaces. 
+        
+        WTS that Z is also a vector space by verifying the axioms. \\
+        Proof: 
+        
+        Let $a = (x_1, y_1), b = (x_2, y_2)$ with $x_1, x_2 \in V, y_1, y_2 \in W$. \\
+        Since we know x and y are vector spaces, we can perform commutative property. \\
+        $x + y = (x_1, y_1) + (x_2, y_2) = (x_1 + x_2, y_1 + y_2) = (x_2 + x_1, y_2 + y_1) = y + x$. 
+
+        Hence, Z holds for commutative property.
+
+        Let $c = (x_3, y_3)$. \\
+        $(a + b) + c = (x_1 + x_2, y_1 + y_2) + (x_3, y_3) = (x_1 + x_2 + x_3, y_1 + y_2 + y_3) = (x_1, y_1) + (x_2 + x_3, y_2 + y_3)$. 
+
+        Hence, Z holds for associative property. 
+
+        Next, we want to show the additive identity exists, \\
+        $ b + 0 = (x_2, y_2) + (0, 0) = (x_2 + 0, y_2 + 0)$ 
+        Since $x_2, y_2$ are elements of a vector space: \\
+        $(x_2 + 0, y_2 + 0) = (x_2, y_2)$
+
+        Next, we want to show that for each element in Z, there's an additive inverse.
+        Let f be an element in Z. \\
+        $a + f = 0$ \\
+        $(x_1, y_1) + f = (0, 0)$
+        $f = (0 - x_1, 0 - x_2) = (-x_1, -y_1)$.
+
+        Hence, for each element in Z, there's an additive inverse. 
+
+        We want to show that 1a = a. 
+        $1 * (x_1, y_1) = (1 * x_1, 1 * y_1) = (x_1, y_1)$ (Scalar of one property for elements $x_1, y_1$)
+
+        Hence, scalar of one property holds for Z.
+
+        Let $i, j \in F$.
+
+        Next, we want to show that (ij)a = i(ja). \\
+
+        Since, elements in a, $x_1, y_1$, are in a vector space:
+
+        $(ij)a = (ij)(x_1, y_1) = (ijx_1, ijy_1) = i(jx_1, jy_1) = i(jx)$.
+
+        Hence, this vector space property holds for Z. 
+
+        Next, we want to show that scalar distribution holds for Z. 
+
+        $i(a + b) = i((x_1 + y_1, x_2 + y_2)) = (ix_1 + iy_1, ix_2 + iy_2) = (ix_1, ix_2) + (iy_1, iy_2) = ia + ib$.
+        Hence, scalar distribution holds for Z. 
+
+        Finally, we want to show that for pairs of elements in a field, scalar distribution holds for Z. \\
+
+        Let $j \in F$. 
+
+        $(i + j)a = (i + j)(x_1, x_2) = ((i + j)x_1, (i + j)x_2) = (ix_1 + jx_1, ix_2 + jx_2) = (ix_1, ix_2) + (jx_1, jx_2) = ia + ja$.
+
+        Hence, for pairs in F, scalar distribution holds. \\
+
+        Since all the axioms hold for Z, Z is a vector space. \qedsymbol{}
+        
+    
+    \item (Section 1.2 Question 20) \\
+        Let V denote the set of all real-valued functions f defined on the real line such that f(1) = 0. Prove that V is a subspace of P(x). 
+
+        WTS (V, + *) / $\mathbb{R}$ is a subspace of P(x). 
+
+        Suppose that f,g $\in$ V. 
+        WTS that (f + g) is $\in$ V. 
+
+        Proof: //
+        (f + g)(1) = f(1) + g(1) = 0 + 0 = 0. 
+
+        Since the output is 0 and (f + g) is in V, V is closed under vector addition and contains the zero vector. 
+
+        Let c be a scalar $\in \mathbb{R}.$ 
+        cf = cf(1) = c * 0 = 0.
+        Since cf is in V, V is closed under scalar multiplication.
+
+        Hence, V is a subspace of all polynomials. \qedsymbol{}
+        
+    \item (Section 1.3 8af) 
+    \begin{enumerate}[label=(\alph*)]
+        \item $W_1 = \{(a_1, a_2, a_3) \in \mathbb{R}^3 : a_1 = 3a_2, a_3 = -a_2\}$
+
+        Determine if $W_1$ is a subspace under $\in \mathbb{R}^3$. \\ \\
+        To show that $W_1$ is a subspace under $\mathbb{R}^3$, we need to show that the zero vector is in $W_1$ and $W_1$ is closed under scalar multiplication and vector addition. \\
+
+        First, (0, 0, 0) : 0 = 3 * 0 and 0 = -0 = 0. 
+
+        Next, assume that $x = (x_1, x_2, x_3)$ and $y = (y_1, y_2, y_3)$ are in $W_1$. Then $x_1 = 3x_2$ and $x_3 = -x_2$ and $y_1 = 3y_2$ and $y_3 = -y_2$
+        
+        The sum of the two vectors would be, $x + y = (x_1 + y_1, x_2 + y_2, x_3, y_3)$.
+
+        Which means: $x_1 + y_1 = 3(x_2 + y_2)$ and $x_3 + y_3 = -(x_2 + y_2)$
+
+        Since $x_1 + y_1 = 3x_2 + 3y_2 = 3(x_2 + y_2)$ and $x_3 + y_3 = -x_2 + (-y_2),$ then $W_1$ is closed under vector addition. 
+
+        Next, let $c \in F$. Assume that $x = (x_1, x_2, x_3)$ is in $W_1$. 
+        Then, $cx = (cx_1, cx_2, cx_3)$ which would be $cx_1 = 3cx_2$ and $cx_3 = -cx_2$. 
+
+        Since $cx = c * (x_1 = 3x_2) = cx_1 = 3cx_2$ and $c * (x_3 = -x_2) = cx_3 = -cx_2$ which means $W_1$ is closed under scalar multiplication.
+        
+        Hence, since all of the requirements are met, $W_1$ is a subspace of $\mathbb{R}^3$. 
+
+        \item (1.3 8f) \\
+
+        $W_6 = \{(a_1, a_2, a_3) \in \mathbb{R}^3 : 5a_1^2 - 3a_2^2 + 6a_3^2 = 0 \}$
+
+        First, check for zero vector:
+        \\ (0,0,0) = $5 * 0 - 3 * 0^2 + 6 * 0^2 = 0 = 0$. 
+
+        Next, assume that $x = (x_1, x_2, x_3)$ and $y = (y_1, y_2, y_3)$ are in $W_6$. Then $5x_1^2 - 3x_2^2 + 6x_3^2 = 0$ and $5y_1^2 - 3y_2^2 + 6y_3^2 = 0$. \\
+
+        The sum of the 2 vectors x + y are: $5(x_1 + y_1)^2 - 3(x_2 + y_2)^2 + 6(x_3 + y_3)^2 = 5x_1^2 + 10x_1y_1 + 5y_1^2 - 3x_2^2 - 6x_2y_2 - 3y_2^2 + 6x_3^2 + 6y_3^2 + 12x_3y_3. $
+
+        However, since there are extra terms like $10x_1y_1, - 6x_2y_2,$ and $12x_3y_3$, it does not equal the sum of expanding x and y. Since the sum doesn't satisfy the equation, $W_6$ is not closed under addition. 
+
+        Let c be $\in$ F. Assume that $x = (x_1, x_2, x_3)$ is in $W_6$. 
+        $c * x = c(5x_1^2 - 3x_2^2 + 6x_3^2 = 0) = 5cx_1^2 - 3cx_2^2 + 6cx_3^2 = 0$. 
+
+        $(cx_1, cx_2, cx_3) = 5x_1^2 - 3x_2^2 + 6x_3^2 = 0$. 
+        Since these two equations match, $W_6$ is closed under scalar multiplication.\\
+
+        Hence, $W_6$ is not a subspace of $\mathbb{R}^3$.
+        
+    \end{enumerate} 
+
+    \item (Section 1.3 11)
+    Is the set $W = \{ f(x) \in P(F): f(x) = 0 $ or $f(x) $ has degree n $ \}$ a subspace of P(F) if $ n \geq 1$?
+
+    Let $f(x) = 1 + x + x^2 + x^3 + ... x^{n-1} + x^n$ and $g(x) = 1 + x + x^2 + x^3 + ... + x^{n-1} - x^n$ s.t. $n > 1$. $f \in W$, $g \in W$. 
+
+    Let $z(x) = f(x) + g(x) = 2 + 2x + 2x^2 + ... 2x^{n-1}$. 
+    Since z(x) has a degree of n-1 instead of n, it is not in the set of W. Thus, W is not a subspace of P(F). \\
+    
+    \item (Section 1.3 19)
+    Prove that $W_1 \cup W_2$ is a subspace of V if and only if $W_1 \subseteq W_2$ or $W_2 \subseteq W_1$. 
+
+    
+    $\rightarrow)$ If $W_1 \cup W_2$ is a subspace, then $W_1 \subseteq W_2$ or $W_2 \subseteq W_1$. \\
+    Contrapositive: If $W_1 \not \subseteq W_2$ and $W_2 \not \subseteq W_1$, then $W_1 \cup W_2$ is not a subspace.
+
+    Assume that $W_1 \not \subseteq W_2$, then $\exists x \in W_1$ s.t. $x \not\in W_2$. Also, $\exists y \in W_2$ s.t. $x \not\in W_1$. 
+
+    WTS $W_1 \cup W_2$ is not a subspace.
+
+    We will show that $W_1$ and $W_2$ are not closed under vector addition.
+    
+    WTS (x + y) $\not\in W_1 \cup W_2$.
+
+    FSOC, assume for some element z, that x + y = z s.t. z $\in$ $W_1 \cup W_2$.
+
+    We need to prove by cases z being in $W_1$ and $W_2$.
+    \\
+    Case 1:
+    Assume that $z \in W_1$. 
+
+    x + y = z \\
+    y = z - x \\
+    Since we know that the sum of z and -1 * x is in $W_2$, $y \in W_1$. 
+    However, that is a contradiction. y cannot be in and not in $W_1$. 
+
+    Case 2:
+    Assume that $z \in W_2$. 
+    x + y = z \\
+    x = z - y \\
+    Similarly to Case 1, x is in $W_2$. That is also a contradiction. 
+
+    Hence, by cases, the union of $W_1 \cup W_2$ is not closed by addition. \\
+    
+    $\leftarrow)$ If $W_1 \subseteq W_2$ or $W_2 \subseteq W_1$, then $W_1 \cup W_2$ is a subspace.
+
+    Let's prove by cases. \\
+
+    Case 1):
+    Assume that $W_1$ and $W_2 $ are subspaces and $W_1 \subseteq W_2$. \\
+    WTS $W_1 \cup W_2$ is a subspace. 
+    Since $W_1 \subseteq W_2$, then $W_1 \cup W_2 = W_2.$ 
+
+    Which means $W_1 \cup W_2$ is a subspace. 
+
+    Case 2):
+    Assume that $W_1$ and $W_2 $ are subspaces and $W_2 \subseteq W_1$. \\
+    WTS $W_2 \cup W_1$ is a subspace. 
+    Since $W_2 \subseteq W_1$, then $W_2 \cup W_1 = W_1.$ 
+
+    Which means $W_2 \cup W_1$ is a subspace. 
+
+    Hence, we have proved both sides. \qedsymbol{}
+    \item (Section 1.3 20)
+
+    Prove that if W is a subspace of a vector space V and $w_1, w_2, ..., w_n$ are in W, then $a_1w_1 + a_2w_2 + ... + a_nw_n \in W$ for any scalars $a_1 + a_2 + ... + a_n$.  \\
+
+    Assume that W is a subspace of vector space V and $w_1, w_2, ..., w_n$ are in W.
+
+    WTS $a_1w_1 + a_2w_2 + ... + a_nw_n \in W$ for any scalars $a_1 + a_2 + ... + a_n$.
+
+    Based on scalar multiplication principle for subspaces, $a_1w_1, a_2w_2, ..., a_nw_n$ are in W. 
+
+    If all of the scalars are zero, then you have the zero vector.
+
+    Since we have $a_1w_1 + a_2w_2 + ... + a_nw_n$, we are adding vectors which satisfies the vector addition property of subspaces. 
+
+    Hence, $a_1w_1 + a_2w_2 + ... + a_nw_n$ $\in W.$ \qedsymbol{}
+    
+    \item (Section 1.3 21)
+    Show that the set of convergent sequences ($a_n$) is a subspace of vector space V.
+
+    WTS the set of convergent sequences is a subspace of V.\\ 
+    Let $a_n, b_n$ be sequences in the set of convergent sequences such that $\lim_{n\to\infty} a_n$ = $L_1$ and $\lim_{n\to\infty} b_n$ = $L_2$. \\
+    
+    $a_n + b_n$: $\lim_{n\to\infty} a_n + b_n$ = $\lim_{n\to\infty} a_n$ + $\lim_{n\to\infty} b_n$ = $L_1 + L_2$.
+
+    The set is closed under vector addition. 
+
+    Let c be a scalar $\in$ F. \\
+    $ca_n$: $\lim_{n\to\infty} ca_n$ = $c\lim_{n\to\infty} a_n$ = c*$L_1$.
+
+    Since the scalar product of a convergent sequence also converges, then the set is closed under scalar multiplication. 
+
+    $\lim_{n\to\infty} 0$ = 0.
+    Since the zero vector is in the set, the set is a subspace of V. 
+
+    Since all the properties of a subspace are verified for the set of convergent sequences, the set convergent sequences is a subspace of V. \qedsymbol{} 
+    
+    \item (Section 1.3 23)
+
+    Let $W_1$ and $W_2$ be subspaces of vector space V.
+    \begin{enumerate}[label=(\alph*)]
+        \item Prove that $W_1 + W_2$ is a subspace of V that contains both $W_1$ and $W_2$. \\
+        Assume that $W_1 + W_2$ is a subspace. 
+        
+        Proof: If $W_1$ and $W_2$ are subspaces, they both contain the zero vector. 0 $\in W_1$, 0 $\in W_2$. \\
+        $0 + 0 = 0 \in W_1 + W_2$
+
+        Let $w_1 \in W_1$ and $w_2 \in W_2$ and $ s = w_1 + w_2 $ and let t = $v_1 + v_2$ s.t. $v_1 \in W_1$ and $v_2 \in W_2$. Let s and t be in $W_1 + W_2$\\
+        Then s + t = ($w_1$ + $w_2$) + ($v_1$ + $v_2$) = ($w_1 + v_1$) + ($w_2 + v_2$).
+
+        Since $W_1$ and $W_2$ are vector spaces, $w_1 + v_1 \in W_1$ and $w_2 + v_2 \in W_2$ due to closure of vector addition. Since that is the case, s + t is in both $W_1$ and $W_2$ which is $W_1 + W_2$.  \\
+        
+        Let c be a scalar $\in F$. Since scalar multiplication is closed in both $W_1$ and $W_2$, $cw_1 \in W_1$ and $cw_2 \in W_2$, so $cs = cw_1 + cw_2 \in W_1 + W_2$.
+
+        Hence, $W_1 + W_2$ contains both $W_1$ and $W_2$. \qedsymbol{}
+
+        \item Prove that any subspace that contains both $W_1$ and $W_2$ must also contain $W_1 + W_2$. \\
+        Contrapositive: If a subspace doesn't contain $W_1 + W_2$, then it doesn't contain $W_1$ or $W_2$. \\
+
+        
+        FSOC, let's assume that if subspace doesn't contain $W_1 + W_2$, but it contains both $W_1$ and $W_2$. 
+
+        Let S a subspace which doesn't contain the subset $W_1 + W_2$ but contains $W_1$ and $W_2$.\\ Let $w_1 \in W_1$ and let $w_2 \in W_2$. \\
+        Since, $W_1 \subseteq S$ and $W_2 \subseteq S$, $w_1 + w_2$ $\in$ $S$. 
+        This means that there are values in S such that $w_1 + w_2 \in W_1 + W_2$ due to closure in vector addition. 
+        
+        However, that is a contradiction since $W_1 + W_2 \in S$, but we assumed that $W_1 + W_2 \not\in S$
+
+        Hence, for any subset that contains both $W_1$ and $W_2$ must also contain $W_1 + W_2$. \qedsymbol{}
+        
+        
+        
+    \end{enumerate}
+
+    \item Let F be a field. Prove that the set $W = \{A \in M_{n \bigtimes n}(F) | A^T = -A\}$ of skew symmetric matrices is a subspace of $M_{n \bigtimes n}(F).$ \\
+
+    Proof: \\
+    Let arbitrary matrices $A, B \in W$. 
+    
+    WTS that the set W is a subspace of $M_{n \bigtimes n}(F).$. 
+
+    Case 1: Zero vector
+
+    If A = 0, then the transpose of A is equal to the scalar multiplication of -1 with A.
+
+    Case 2: Since $A^t = -A$ and $B^t = -B$, then $(A + B)^t = A^t + B^t = -A - B$. 
+
+    Since, vector addition still maintains the condition of the set, this set is closed under vector addition. 
+
+    Let $c \in F$. Since $A^t = -A$, then $(cA)^t = c(A^t) = c(-A) = -cA$. 
+
+    Since, scalar multiplication still maintains the condition of the set, this set is closed under scalar multiplication. 
+
+    Hence, the set is closed under scalar multiplication and vector addition so it is a subspace of $M_{n \bigtimes n}(F)$. \qedsymbol{}
+    
+
+    \item (Section 1.4 1)
+        \begin{enumerate}[label=(\alph*)]
+            \item True. The zero vector can be possible if all the scalars are zero.
+            \item False. The empty set spans the zero vector.
+            \item True, the span of a subset equals the intersection of all subspaces of V that contain S.
+            \item False, you cannot multiply zero to the equation. 
+            \item True, you can add a multiple of one equation with another
+            \item False, it can have infinite or zero solutions.
+        \end{enumerate}
+    
+    \item  (Section 1.4 10)
+    Show that if \\
+
+    $\begin{pmatrix}
+    1 & 0 \\
+    0 & 0 
+    \end{pmatrix}$ 
+    $\begin{pmatrix}
+    0 & 0 \\
+    0 & 1 
+    \end{pmatrix}$ 
+    $\begin{pmatrix}
+    0 & 1 \\
+    1 & 0 
+    \end{pmatrix}$, \\ \\
+    then the span of $\{M_1, M_2, M_3\}$ is the set of all symmetric 2 $\bigtimes 2$ matrices.\\
+
+    The transpose of the three matrices above is its original self. Hence, they are symmetric matrices. 
+
+    WTS that the span of $\{M_1, M_2, M_3\}$  is the set of all symmetric 2 $\bigtimes 2$ matrices.
+    Let S be an arbitrary symmetric $2 \bigtimes 2$ matrix such that
+    
+    S = $\begin{pmatrix}
+    a & b \\
+    b & d 
+    \end{pmatrix}$
+
+    S = a$\begin{pmatrix}
+    1 & 0 \\
+    0 & 0 
+    \end{pmatrix}$ + b$\begin{pmatrix}
+    0 & 0 \\
+    0 & 1 
+    \end{pmatrix}$ + c$\begin{pmatrix}
+    0 & 1 \\
+    1 & 0 
+    \end{pmatrix}$
+
+    Since S is a linear combination of the three symmetric matrices and is symmetric, we can conclude that the span of $\{M_1, M_2, M_3\}$ is the set of all symmetric $2 \bigtimes 2$ matrices. \qedsymbol{}
+
+    \item (Section 1.4 12) Show that a subset W of a vector space V is a subspace of V if and only if span(W) = W. 
+    
+    $\leftarrow$) If span(W) = W, then W is a subspace of vector space V. \\ \\
+    Assume that W is also the span of W. \\
+    WTS that W is also a subspace of vector space V. 
+
+    Proof: If W = ${\emptyset}$, then W contains 0. 
+
+    Let x be an element in W s.t., $x = c_1w_1 + c_2w_2 + c_3w_3 + ... c_nw_n$ s.t. $c_1, c_2, c_3, ..., c_n \in F$ and $w_1, w_2, ..., w_n \in W$. \\ \\ And let $y = a_1y_1 + a_2y_2 + a_3y_3 + ... a_ny_n$ s.t. $a_1, a_2, a_3, ..., a_n \in F$ and $y_1, y_2, ..., y_n \in W$. \\
+
+    If $c_1, c_2, c_3,..., c_n = 0$, then the zero vector is in W. 
+
+    x + y = $c_1w_1 + a_1y_1 + ... + c_nw_n + a_ny_n$
+
+    Let c be a scalar $\in$ F. 
+    dx = $(dc_1)w_1 + (dc_2)w_2 + ... + (dc_n)w_n$ 
+
+    x + y, and dx are linear combinations of vectors in W, so x + y and dx are in span(W). Additionally the zero vector is in W. Hence, span(W) is a subspace of V. 
+    
+    
+    
+    $\rightarrow$) If W is a subset of vector space V is also a subspace of V, then span(W) = W. 
+
+    Assume that W is a subspace of V.  
+
+    WTS span(W) = W.
+    
+    Proof: \\ We know that the span of W will also be a subspace of V since it is closed under vector addition and scalar multiplication. 
+
+    Hence, since span(W) is the linear combinations of W, $W \subseteq span(W)$. 
+    Hence, W = span(W). 
+
+    \qedsymbol{}
+    
+\end{enumerate}
+
+\end{document}
