@@ -1,0 +1,885 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsfonts}
+\usepackage{enumitem}
+\usepackage{amsthm}
+\usepackage{mathabx}
+\usepackage{latexsym}
+\usepackage{amsmath}
+
+\title{Math 115A Homework 4}
+\author{Jaden Ho}
+\date{October 29, 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Homework 4}
+
+\begin{enumerate}
+    \item (2.2 Problem 3)
+        Let T: $\mathbb{R}^2 \xrightarrow{} \mathbb{R}^3$ be defined by $T(a_1, a_2) = (a_1 - a_2, a_1, 2a_1 + a_2)$. Let $\beta$ be the standard ordered basis for $\mathbb{R}^2$ and $\gamma = \{(1, 1, 0), (0, 1, 1), (2, 2, 3)\}$. Compute $[T]_\beta^\gamma$. If $\alpha = \{(1,2), (2,3)\}$, compute $[T]_\alpha^\gamma$.
+
+        Standard ordered basis for $\mathbb{R}^2$ is {(1,0), (0, 1)}.
+
+        T(1, 0) = (1 - 0, 1, 2 * 1 + 0) = (1, 1, 2) 
+
+        a(1, 1, 0) + b(0, 1, 1) + c(2, 2, 3) = (1, 1, 2)
+        $\frac{-1}{3}(1, 1, 0) + 0(0, 1, 1) + \frac{2}{3}(2, 2, 3) = (1, 1, 2)$
+
+        T(0, 1) = (0 - 1, 0, 1) = (-1, 0, 1)
+
+        a(1, 1, 0) + b(0, 1, 1) + c(2, 2, 3) = (-1, 0, 1)
+        -1(1, 1, 0) + 1(0, 1, 1) + 0(2, 2, 3) = (-1, 0, 1) 
+
+        $[T]_\beta^\gamma$ = 
+        $\begin{pmatrix}
+        \frac{-1}{3} & -1 \\
+        0 & 1 \\
+        \frac{2}{3} & 0 \\
+        \end{pmatrix}$ 
+
+        T(1,2) = (-1, 1, 4) 
+        (-1, 1, 4) = a(1, 1, 0) + b(0, 1, 1) + c(2, 2, 3)
+
+        
+        a = $-\frac{7}{3}$ b = $2$ c = $\frac{2}{3}$
+
+        T(2, 3) = (-1, 2, 7) = a(1, 1, 0) + b(0, 1, 1) + c(2, 2, 3) 
+
+        a = $-\frac{11}{3}$ b = $3$ c = $\frac{4}{3}$
+
+        $[T]_\alpha^\gamma$ = 
+        $\begin{pmatrix}
+        \frac{7}{3} & -\frac{11}{3} \\
+        2 & 3 \\
+        \frac{2}{3} & \frac{4}{3} \\
+        \end{pmatrix}$ 
+        
+           
+    \item (2.2 Problem 4)
+    Define 
+
+    T: $M_{2 \times 2}(R) \rightarrow P_2(\mathbb{R})$ by T$\begin{pmatrix}
+        a & b \\
+        c & d \\
+        \end{pmatrix}$ = (a + b) + (2d)x + b$x^2$
+
+        Let 
+        $\beta = \{ \begin{pmatrix}
+        1 & 0 \\
+        0 & 0 \\
+        \end{pmatrix}, \begin{pmatrix}
+        0 & 1 \\
+        0 & 0 \\
+        \end{pmatrix}, \begin{pmatrix}
+        0 & 0 \\
+        1 & 0 \\
+        \end{pmatrix}, \begin{pmatrix}
+        0 & 0 \\
+        0 & 1 \\
+        \end{pmatrix}    \}$ and $\gamma = \{1, x, x^2 \}$
+
+    Compute $[T]_\gamma^\beta$
+
+    T$\begin{pmatrix}
+        1 & 0 \\
+        0 & 0 \\
+        \end{pmatrix}$ = 1
+
+    $a(1) + bx + cx^2 = 1$
+
+    $a = 1, b = 0, c = 0$
+
+    T$\begin{pmatrix}
+        0 & 1 \\
+        0 & 0 \\
+        \end{pmatrix}$ = 1 + $x^2$
+
+    $a(1) + bx + cx^2 = 1 + x^2$
+
+    $a = 1, b = 0, c = 1$
+
+    T$\begin{pmatrix}
+        0 & 0 \\
+        1 & 0 \\
+        \end{pmatrix}$ = 0
+
+    $a(1) + bx + cx^2 = 0$
+    
+    $a = 0, b = 0, c = 0$
+
+    T$\begin{pmatrix}
+        0 & 0 \\
+        0 & 1 \\
+        \end{pmatrix}$ = 2x
+
+    $a(1) + bx + cx^2 = 2x$
+        
+    $a = 0, b = 2, c = 0$
+
+    $[T]_\gamma^\beta = $
+    $\begin{pmatrix}
+        1 & 1 & 0 & 0\\
+        0 & 0 & 0 & 2\\
+        0 & 1 & 0 & 0\\
+        \end{pmatrix}$
+    
+    \item (2.2 Problem 9)
+    Let V be the vector space of complex numbers over the field R. Define T: $V \rightarrow V$ by $T(z) = \bar{z}$, where $\bar{z}$ is the complex conjugate of z. Prove that T is linear and compute $[T]_\beta$, where $\beta = \{1, i\}$. 
+
+    To show that T is linear, we must show that for two arbitrary elements that T preserves scalar multiplication and vector addition.
+
+    Let x = a + bi and y = e + fi for some $a, b, e, f \in \mathbb{F}$
+
+    T(c(a + bi) + (e + fi)) = T((ca + e) + (cb + f)i) = (ca + e) - (cb + f)i 
+
+    cT(a + bi) + T(e + fi) = c(a - bi) + (e - fi) = (ca + e) - (cb + f)i 
+
+    Hence, T is linear. 
+
+    $[T]_\beta$ 
+
+    $T(1) = 1 + 0i$
+    
+    $T(i) = 0 - i$
+
+    $[T]_\beta$ = 
+    $\begin{pmatrix}
+        1 & 0 \\
+        0 & -1 \\
+        \end{pmatrix}$
+    
+    \item (2.2 Problem 14) Let V and W be subspaces, and let T and U be nonzero linear transformations from V into W. If R(T) $\cap$ R(U) $= \{ 0\}$, prove that $\{ T, U\}$ is a linearly independent subset of $\mathcal{L}(V, W)$. 
+
+    FSOC, assume that R(T) $\cap$ R(U) $= \{ 0\}$, but $\{ T, U\}$ is a linearly dependent subset of $\mathcal{L}(V, W)$. 
+
+    Since T, U are nonzero linear transformations from V into W, $\exists c \in \mathbb{F}$ s.t. $cT + U = 0$ which equals $cT = U$. 
+
+    T is a nonzero transformation from V $\rightarrow$ W. So, $\exists v \in V $ and non-zero element w s.t $T(v) = w$. 
+
+    Since $cT = U$, $U(v) = cw$.  
+
+    \begin{equation}
+        w = \frac{1}{c}(cw) = \frac{1}{c}U(v)
+    \end{equation}
+        
+    Hence, w $\in R(U)$. However, since $w \in R(T)$ and $w \in R(U)$, w $\in R(T) \cap R(U)$ which means w = 0, which is a contradiction.
+
+    Thus, $\{ T, U\}$ is a linearly independent. \qedsymbol{}
+
+    \item (2.2 Problem 17) Let V and W be vector spaces such that dim(V) = dim(W), and let $T: V \rightarrow W$ be linear. Show that there exist ordered bases $\beta$ and $\gamma$ for V and W, respectively, such that $[T]_\beta^\gamma$ is a diagonal matrix.
+
+    Suppose that nullity(T) = k. Let $\{x_1, x_2, ... x_k\}$ be a basis for the kernel for some arbitrary, but fixed $x_1, x_2, ..., x_k$ in the ker(T).
+
+    By the Dimension Theorem, rank(T) = n - k, s.t. n represents the dimension of V and W. There also must exist a basis for R(T) that has n - k elements. 
+    
+    Let $\gamma_{R(T)}$ = $\{y_{k + 1}, y_{k + 2}, ..., y_n \}$ be a basis for the subspace $R(T)$. Then, the dimension of this basis is n - k. 
+
+    Since $y_i \in$ R(T), for i in k + 1 to n, $\exists$ $\beta \in V$ s.t. T($x_i$) = $y_i$. We know that $\{ y_{k + 1},..., y_n \}$ is linearly independent. 
+
+    WTS that $\{x_{k+1}, ... x_{n}\}$ is also linearly independent. 
+    To show that this set of vectors is linearly independent, we will construct a linear combination that equals 0 and show the coefficients of the linear combination equal 0.
+
+    Suppose for the sake of contradiction that $\{x_{k+1}, ... x_{n}\}$ is linearly dependent from elements in $\{x_1, x_2, ... x_n\}$. 
+
+    By the definition of linearly dependence, $\exists$ some vector $x_i$ in the set that can be written as a linear combination of the other elements in the set i.e. $x_i = a_1x_1 + a_2x_2 + ... a_kx_k$, for i in $\{1, 2, ..., k\}$. 
+
+    If we apply linear transformation T on both sides we get $T(x_i) = T(a_1x_1 + a_2x_2 + ... a_kx_k)$
+
+    Since i is in the range of $\{1, 2, ..., k\}$, $x_i$ is in ker(T) so $T(x_i) = 0 = T(a_1x_1 + a_2x_2 + ... a_kx_k) = a_1y_1 + a_2y_2 + ... a_iy_i = 0$.
+
+    Also, i is in the range of 1 to k, and since $x_1, ..., x_k$ is linearly independent since it is a basis for N(T), all of the coefficients $a_1, ..., a_i$ must be zero. So we have: 
+
+    \begin{equation}
+        x_j = 0 * x_1 + 0 * x_2 + ... 0 * x_k
+    \end{equation} 
+    which contradicts our assumption that $x_j$ is L.D. from $\{x_1, x_2, ... x_n\}$. 
+    Hence, $\{x_1, x_2, ..., x_n  \}$ is LI. 
+
+    We now have the ordered basis for $\beta = \{x_1, x_2, .. x_n,  \}$.
+
+    We want to construct $\gamma$. We can construct the following from N(T): 
+    
+    $\{T(x_1), T(x_2), ... T(x_k), \_\_\_\_\_  \}$. 
+
+    We want to fill out the rest of the basis so that the dimension of the basis is equal to $\beta$. By Replacement Theorem we can write: 
+    
+    $\{T(x_1), T(x_2), ... T(x_k), T(x_{k + 1}), T(x_{k + 2}),..., T(x_{n}) \}$
+
+    To find out $[T]_\beta^\gamma$, we write the following equation below:
+    \begin{equation}
+        [T(x_i)]_\gamma = [T]_\beta^\gamma [x_i]_\beta
+    \end{equation}
+    for i in i to n. 
+
+    And we get the following matrix:
+    $\begin{pmatrix}
+        O & O \\
+        O & I \\
+    \end{pmatrix}$
+    In which I represents the identity matrix from $n - k \times n - k$ and the rest of the matrix are all zeroes. 
+    
+    Hence, $[T]_\beta^\gamma$ is a diagonal matrix.
+
+    \qedsymbol{}
+
+    \item (2.3 Problem 3) Let g(x) = 3 + x. Let $T: P_2(R) \rightarrow P_2(R)$ and U: $P_2(R) \rightarrow R^3$ be the linear transformations respectively defined by 
+    \begin{equation}
+        T(f(x)) = f'(x)g(x) + 2f(x) 
+    \end{equation}
+    and 
+    \begin{equation}
+        U(a + bx + cx^2) = (a + b, c, a - b)
+    \end{equation}
+    Let $\beta$ and $\gamma$ be the standard ordered bases of $P_2(R)$ and $R^3$, respectively. 
+
+    \begin{enumerate}[label=(\alph*)]
+    \item 
+    $\beta = \{1, x, x^2 \}$ $\gamma = \{(1, 0, 0), (0, 1, 0), (0, 0, 1) \}$
+
+    U(1) = (1 + 0, 0, 1 - 0) = (1, 0, 1) \\
+    U(x) = (0 + 1, 0, 0 - 1) = (1, 0, -1) \\
+    $U(x^2) = (0, 1, 0)$ = (0, 1, 0) \\
+
+    $[U]^\gamma_\beta$ = 
+    $\begin{pmatrix}
+        1 & 1 & 0\\
+        0 & 0 & 1\\
+        1 & -1 & 0
+        \end{pmatrix}$
+
+    T(1) = (1)'(3 + x) + 2(1) = 2  $\begin{pmatrix}
+        2 \\
+        0 \\
+        0  \\
+        \end{pmatrix}$
+
+    T(x) = (x)'(3 + x) + 2(x) = 3 + 3x $\begin{pmatrix}
+        3 \\
+        3 \\
+        0  \\
+        \end{pmatrix}$\\
+    $T(x^2) = (x^2)'(3 + x) + 2(x^2) = 2x(3 + x) + 2x^2 = 6x + 4x^2$  $\begin{pmatrix}
+        0 \\
+        6 \\
+        4  \\
+        \end{pmatrix}$
+
+    $[T]_\beta$ = 
+    $\begin{pmatrix}
+        2 & 3 & 0\\
+        0 & 3 & 6\\
+        0 & 0 & 4
+        \end{pmatrix}$
+
+    UT(1) = U(2) = (2, 0, 2) \\
+    UT(x) = U(3 + 3x) = (6, 0, 0) \\
+    $UT(x^2) = U(6x + 4x^2) = (6, 4, -6)$ \\
+
+    $[UT]^\gamma_\beta$ = 
+    $\begin{pmatrix}
+        2 & 6 & 6\\
+        0 & 0 & 4\\
+        2 & 0 & -6
+        \end{pmatrix}$
+
+    $[U]^\gamma_\beta [T]_\beta$ = $\begin{pmatrix}
+        1 & 1 & 0\\
+        0 & 0 & 1\\
+        1 & -1 & 0
+        \end{pmatrix}$ $\begin{pmatrix}
+        2 & 3 & 0\\
+        0 & 3 & 6\\
+        0 & 0 & 4
+        \end{pmatrix}$ = 
+        
+        $\begin{pmatrix}
+        1 * 2 + 0 + 0  & 1 * 3 + 1 * 3 + 0 & 1 * 0 + 1 * 6 + 0\\
+        0 * 2 + 0 + 1 * 0 & 0 * 3 + 0 + 1 * 0 & 0 + 0 + 1 * 4 \\
+        1 * 2 + -1 * 0 + 0 & 1 * 3 + -1 * 3 + 0 & 1 * 0 + (-1) * 6 + 0 \\
+        \end{pmatrix}$ = 
+    
+    $\begin{pmatrix}
+        2 & 6 & 6\\
+        0 & 0 & 4\\
+        2 & 0 & -6
+        \end{pmatrix}$ 
+
+    \qedsymbol
+
+    \item 
+    $h(x) = 3 - 2x + x^2$ 
+
+    $[h(x)]_\beta = \begin{pmatrix}
+        3 \\
+        -2 \\
+        1  \\
+        \end{pmatrix}$
+
+    U(h(x)) = $U(3 - 2x + x^2) = (3 - 2, 1, 3 - (-2)) = (1, 1, 5) $
+    
+    $[U(h(x))]_\gamma = \begin{pmatrix}
+        1 \\
+        1 \\
+        5  \\
+        \end{pmatrix}$
+
+    $[U(h(x))]_\gamma = [U]^\gamma_\beta[h(x)]_\beta $ = $\begin{pmatrix}
+        1 & 1 & 0\\
+        0 & 0 & 1\\
+        1 & -1 & 0
+        \end{pmatrix}$ $\begin{pmatrix}
+        3 \\
+        -2 \\
+         1 \\
+        \end{pmatrix}$
+        = $\begin{pmatrix}
+        3 * 1 + -2 * 1 + 0 \\
+        0 + 0 + 1 * 1 \\
+        1 * 3 + -2 * -1 + 0 \\
+        \end{pmatrix}$ = 
+        $\begin{pmatrix}
+        1 \\
+        1 \\
+        5 \\
+        \end{pmatrix}$
+        
+    \qedsymbol
+    
+    \end{enumerate}
+    
+    \item (2.3 Problem 9) 
+
+    Define T$\begin{pmatrix}
+        a \\
+        b \\
+        \end{pmatrix}$ = $\begin{pmatrix}
+        a - b\\
+        b - a\\
+        \end{pmatrix}$
+
+        and 
+
+        $U\begin{pmatrix}
+        c \\
+        d \\
+        \end{pmatrix} = \begin{pmatrix}
+        c + d \\
+        -d - c \\
+        \end{pmatrix}$ for some a,b,c,d $\in \mathbb{F}^2$. 
+
+        UT($\begin{pmatrix}
+        e \\
+        f \\
+        \end{pmatrix}$) = U($\begin{pmatrix}
+        e - f\\
+        f - e\\
+        \end{pmatrix}$) = $\begin{pmatrix}
+        e - f + (f - e)\\
+        -(f - e) - (f - e)\\
+        \end{pmatrix}$ = $\begin{pmatrix}
+        0\\
+        0\\
+        \end{pmatrix}$ = $T_0$
+
+        TU($\begin{pmatrix}
+        e\\
+        f\\
+        \end{pmatrix}$ = T($\begin{pmatrix}
+        e + f\\
+        f - e\\
+        \end{pmatrix}$) = $\begin{pmatrix}
+        e + f - (-f - e)\\
+        f - e - (e + f)\\
+        \end{pmatrix}$ = $\begin{pmatrix}
+        2e + 2f\\
+        -2e - 2f\\
+        \end{pmatrix}$ $\neq T_0$
+
+        Let A and B be the matrix representations of the transformations of U and T, respectively: 
+
+        
+        A = $\begin{pmatrix}
+        1 & 1\\
+        -1 & -1 \\
+        \end{pmatrix}$     
+        B = $\begin{pmatrix}
+        1 & -1\\
+        -1 & 1 \\
+        \end{pmatrix}$
+
+        AB = $\begin{pmatrix}
+        1 & 1\\
+        -1 & -1 \\
+        \end{pmatrix}$ $\begin{pmatrix}
+        1 & -1\\
+        -1 & 1 \\
+        \end{pmatrix}$ = $\begin{pmatrix}
+         1(1) + 1*(-1) & 1(-1) + 1*1\\
+        -1(1) + 1(1)& -1(-1) + (-1) * 1\\
+        \end{pmatrix}$ = $\begin{pmatrix}
+        0 & 0\\
+        0 & 0 \\
+        \end{pmatrix}$
+
+        BA = $\begin{pmatrix}
+        1 & -1\\
+        -1 & 1 \\
+        \end{pmatrix}$ $\begin{pmatrix}
+        1 & 1\\
+        -1 & -1 \\
+        \end{pmatrix}$ = $\begin{pmatrix}
+        1(1) + (-1 * -1) & 1(1) + (-1* -1)\\
+        -1 * 1 + (-1) * 1 & -1(1) + (-1)*1 \\
+        \end{pmatrix}$ = $\begin{pmatrix}
+        2 & 2\\
+        -2 & -2 \\
+        \end{pmatrix}$
+
+        
+        
+    \item (2.3 Problem 16a)
+
+    Let V be a finite-dimensional vector space, and let T: V $\rightarrow$ V be linear. 
+    If rank(T) = rank($T^2$), prove that $R(T) \cap N(T) = \{0\}$. Deduce that $V = R(T) \bigoplus N(T)$. 
+
+    Assume that rank(T) = rank($T^2$) and $V = R(T) \bigoplus N(T)$.
+
+    WTS $R(T) \cap N(T) = \{0\}$. 
+
+    Proof: 
+    Let v $\in N(T)$. T(v) = 0. So T$^2(v) = $T(T(v)) = T(0) = 0 since T is linear. So we can deduce that N$(T) \subseteq N(T^2)$. 
+
+    By the Dimension Theorem,
+    \begin{equation}
+        dim(N(T)) = nullity(T) = dim(V) - rank(T) = dim(V) - rank(T^2) = nullity(T^2)
+    \end{equation}
+
+    Since N(T) is a subspace, we can use Theorem 1.11, to state that if nullity(T) = $nullity(T^2)$, then T = $T^2$.     
+    
+    Let w $\in R(T) \cap N(T)$. \\
+    Given that w $\in R(T)$ implies that $\exists$ y s.t. T(y) = w. 
+
+    T(T(y)) = T(w) = 0 because w is also in N(T). 
+
+    Then y must be in N($T^2$) = N(T).  
+
+    Since T(w) = y = 0, we can conclude that R(T) $\cap$ N(T) = $\{ 0 \}$
+    
+    \item (2.4 Problem 2)
+        \begin{enumerate}[label=(\alph*)]
+            \item[c)] T: $\mathbb{R}^2 \rightarrow \mathbb{R}^3$ defined by $T(a_1, a_2, a_3) = (3a_1 - 2a_3, a_2, 3a_1 + 4a_2)$
+
+            If we put it in matrix form we get: \\
+            $\begin{pmatrix}
+                3 & 0 & -2 \\
+                0 & 1 & 0 \\
+                3 & 4 & 0 \\
+            \end{pmatrix}$
+            -1R1 + R3 $\rightarrow$ R3 $\begin{pmatrix}
+                3 & 0 & -2 \\
+                0 & 1 & 0 \\
+                0 & 4 & 2 \\
+            \end{pmatrix}$ -4R2 + R3 $\rightarrow$ R3 $\begin{pmatrix}
+                3 & 0 & -2 \\
+                0 & 1 & 0 \\
+                0 & 0 & 2 \\
+            \end{pmatrix}$ 1/3R1 $\rightarrow$ R1, 1/2R3 $\rightarrow$ R3 $\begin{pmatrix}
+                1 & 0 & -2/3 \\
+                0 & 1 & 0 \\
+                0 & 0 & 1 \\
+            \end{pmatrix}$ 2/3R3 + R1 $\rightarrow$ R1 $\begin{pmatrix}
+                1 & 0 & 0 \\
+                0 & 1 & 0 \\
+                0 & 0 & 1 \\
+            \end{pmatrix}$
+            By using RREF, I got the identity matrix which means the rank of A is 3. So the matrix is invertible.
+            
+            \item[e)] T: $M_{2 \times 2}(R) \rightarrow P_2(R)$ defined by T$\begin{pmatrix}
+        a & b \\
+        c & d\\
+        \end{pmatrix}$ = $a + 2bx + (c + d)x^2$
+
+            To show whether or not T is invertible, let's create use the standard basis $\beta = \{e_{11}, e_{12}, e_{21}, e_{22} \}$ and create a basis for $P_2(R)$ which is $\gamma = \{1, x, x^2 \}$
+            
+            T($\begin{pmatrix}
+                1 & 0 \\
+                0 & 0 \\
+            \end{pmatrix}$) = $1 + 0x + 0x^2$ = $\begin{pmatrix}
+                1 \\
+                0 \\
+                0 \\
+            \end{pmatrix}$
+
+            T($\begin{pmatrix}
+                0 & 1 \\
+                0 & 0 \\
+            \end{pmatrix}$) = $1 + 0x + 1x^2$ = $\begin{pmatrix}
+                1 \\
+                0 \\
+                1 \\
+            \end{pmatrix}$
+
+            T($\begin{pmatrix}
+                0 & 0 \\
+                1 & 0 \\
+            \end{pmatrix}$) = $0 + 0x + 0x^2$ = $\begin{pmatrix}
+                0 \\
+                0 \\
+                0 \\
+            \end{pmatrix}$
+
+            T($\begin{pmatrix}
+                0 & 1 \\
+                0 & 0 \\
+            \end{pmatrix}$) = $1 + 0x + 1x^2$ = $\begin{pmatrix}
+                0 \\
+                2 \\
+                0 \\
+            \end{pmatrix}$
+
+            $[T]_\beta^\gamma = \begin{pmatrix}
+                1 & 1 & 0 & 0 \\
+                0 & 0 & 0 & 2 \\
+                0 & 1 & 0 & 0 \\
+            \end{pmatrix}$
+
+            However, since $[T]_\beta^\gamma$ is not a square matrix, it is not invertible. So T is not invertible.
+
+            \item[f)] T: $M_{2 \times 2}(R) \rightarrow M_{2 \times 2}(R) $ defined by $\begin{pmatrix}
+        a & b \\
+        c & d\\
+        \end{pmatrix}$ = $\begin{pmatrix}
+        a + b & a \\
+        c & c + d\\
+        \end{pmatrix}$
+        To show whether or not T is invertible, let's create use the standard basis $\{e_{11}, e_{12}, e_{21}, e_{22} \}$. 
+
+        T($\begin{pmatrix}
+        1 & 0 \\
+        0 & 0 \\
+        \end{pmatrix}$) = $\begin{pmatrix}
+        1 & 1 \\
+        0 & 0 \\
+        \end{pmatrix} = 1e_{11} + 1e_{22} = \begin{pmatrix}
+        1  \\
+        1 \\
+        0 \\
+        0 \\
+        \end{pmatrix}$
+
+        T($\begin{pmatrix}
+        0 & 1 \\
+        0 & 0 \\
+        \end{pmatrix}$) = $\begin{pmatrix}
+        1 & 0 \\
+        0 & 0 \\
+        \end{pmatrix} = 1e_{11} = \begin{pmatrix}
+        1  \\
+        0 \\
+        0 \\
+        0 \\
+        \end{pmatrix}$ 
+
+        T($\begin{pmatrix}
+        0 & 0 \\
+        1 & 0 \\
+        \end{pmatrix}$) = $\begin{pmatrix}
+        0 & 0 \\
+        1 & 1 \\
+        \end{pmatrix} = 1e_{21} + 1e_{22} = \begin{pmatrix}
+            0 \\
+            0 \\
+            1 \\
+            1\\
+        \end{pmatrix}$ 
+
+        T($\begin{pmatrix}
+        0 & 0 \\
+        0 & 1 \\
+        \end{pmatrix}$) = $\begin{pmatrix}
+        0 & 0 \\
+        0 & 1 \\
+        \end{pmatrix} = 1e_{22} = \begin{pmatrix}
+            0 \\
+            0 \\
+            0 \\
+            1\\
+        \end{pmatrix}$
+
+        [T]$_\beta$ = $\begin{pmatrix}
+            1 & 1 & 0 & 0  \\
+            1 & 0 & 0 & 0  \\
+            0 & 0 & 1 & 0  \\
+            0 & 0 & 1 & 1  \\
+        \end{pmatrix}$
+
+        Cofactor along 4th column:
+        det([T]$_\beta$) = (-1) * 0 + (1) * 0 + (-1) * 0 + 1 * 1 * det $\begin{pmatrix}
+            1 & 1 & 0\\
+            1 & 0 & 0 \\
+            0 & 0 & 1 \\ 
+        \end{pmatrix}$
+        cofactor along 3rd row: (-1) * 1 * det($\begin{pmatrix}
+            1 & 0 \\
+            0 & 1 \\
+        \end{pmatrix}$) + 0 + 0 = (-1 * 1) = -1
+
+        Since det([T]$_\beta$) = -1 $\neq$ 0, [T]$_\beta$ is invertible.
+        
+        \end{enumerate}
+      
+    \item (2.4 Problem 3) 
+        \begin{enumerate}[label=(\alph*)]
+            \item $F^3$ and $P_3(F)$ cannot be isomorphic since their ordered bases do not have the same count of elements. In order for $F^3$ and $P_3(F)$ to be isomorphic, they must be invertible. To be invertible, you must have dimensions of the same size. And that is not the case for this example. 
+            \item $F^4$ and $P_3(F)$ are isomorphic as long as the are in the same field F and have equal dimensions.
+            \item $M_{2 \times 2}(R)$ and $P_3(R)$ are isomorphic. Since you can create an ordered basis of 4 elements for both $M_{2 \times 2}(R)$ and $P_3(R)$, they have the same dimension which means they are isomorphic. 
+            \item $V = \{A \in M_{2 \times 2}(R): tr(A) = 0 \}$ and $R^4$ cannot be isomorphic. $R^4$ has an ordered basis consisting of 5 elements, while V has 4 elements in the ordered basis. Thus, their dimensions are not equal to each other so they cannot be isomorphic. 
+        \end{enumerate}
+    \item (2.4 Problem 4)
+        Let A and B be $n \times n$ invertible matrices. Prove that AB is invertible and $(AB)^{-1} = B^{-1}A^{-1}$. 
+        
+        WTS AB is invertible and $(AB)^{-1} = B^{-1}A^{-1}$. 
+
+        To show that AB is invertible, we must show that AB times $B^{-1}A^{-1}$ is the identity matrix. 
+
+        Given that A and B are invertible: 
+        
+        $(AB)(B^{-1}A^{-1}) = A(BB^{-1})A^{-1} = A(I_n)A^{-1} = AA^{-1} = I_n$ 
+
+        Hence, AB is invertible and $B^{-1}A^{-1}$ is the inverse of AB. 
+        \qedsymbol{}
+        
+    \item (2.4 Problem 14)
+    Let V = $\{\begin{pmatrix}
+        a & a + b \\
+        0 & c\\
+        \end{pmatrix}$: a, b, c $\in$ F$\}$ 
+
+    Construct an isomorphism from V to $F^3$. 
+
+    $\begin{pmatrix}
+        a & a + b \\
+        0 & c\\
+        \end{pmatrix} = a\begin{pmatrix}
+        1 & 1 \\
+        0 & 0\\
+        \end{pmatrix} + b\begin{pmatrix}
+        0 & 1 \\
+        0 & 0\\
+        \end{pmatrix} + c\begin{pmatrix}
+        0 & 0 \\
+        0 & 1\\
+        \end{pmatrix} =$
+
+        We can set the basis as $\{\begin{pmatrix}
+        1 & 1 \\
+        0 & 0\\
+        \end{pmatrix}, \begin{pmatrix}
+        0 & 1 \\
+        0 & 0\\
+        \end{pmatrix}, \begin{pmatrix}
+        0 & 0 \\
+        0 & 1\\
+        \end{pmatrix}\}$. 
+
+        By Theorem 2.21, any finite-dim vector space V with ordered basis $\beta, \phi_\beta$ is an isomorphism. 
+
+        Then $\phi_\beta = (a, b, c)$ and is isomorphic. 
+    
+    \item (2.4 Problem 16)
+        Let B be an $n \times n$ invertible matrix. Define $\Phi: M_{n \times n}(F) \rightarrow M_{n \times n}(F)$ by $\Phi(A) = B^{-1}AB.$ Prove that $\Phi$ is an isomorphism.
+
+        To show that $\Phi$ is an isomorphism, let $\Psi$ be the map that follows $\Psi: M_{n \times n}(F) \rightarrow M_{n \times n}$(F) by $\Psi(A) = BAB^{-1}$. 
+
+        We will show that $\Psi$ = $\Phi^{-1}$
+
+        $\Phi(\Psi(A)) = \Phi(BAB^{-1}) = B^{-1}(BAB)B^{-1} = I_nAI_n = A$ 
+
+        $\Psi(\Phi(A)) = \Phi(B^{-1}AB) = BB^{-1}ABB^{-1} = I_nAI_n = A$ 
+
+        Since $\Psi(\Phi(A)) = \Phi(\Psi(A)) = A$, we can conclude that $\Psi$ is $\Phi^{-1}$ which means $\Phi$ is invertible.
+
+        We must show that $\Psi$ is linear. Let C, D be fixed, but arbitrary matrices $\in M_{n \times n}(F)$ and scalar $a \in F$. To show that $\Phi$ is linear, we must verify that $\Phi$ preserves scalar multiplication and vector addition. Let's construct a transformation as such: \\
+        $\Psi(aC + D) = B(aC + D)B^{-1} = (aBC + BD)B^{-1} = aBCB^{-1} + BDB^{-1}$
+
+        $a\Psi(C) + \Psi(D)$ = $aBCB^{-1} + BDB^{-1}$
+
+        Since, $\Psi(aC + D) = a\Psi(C) + \Psi(D)$, we have shown that the invertible transformation of $\Phi$ is linear. 
+
+        $\Phi$ is invertible and its inverse $\Psi$ is linear, then $\Phi$ is an isomorphism. \qedsymbol{} 
+        
+        
+    \item (2.4 Problem 17)
+    Let V and W be finite-dimensional vector spaces and T: V $\rightarrow$ W be an isomorphism. Let $V_0$ be a subspace of V. 
+    \begin{enumerate}[label=(\alph*)]
+        \item Prove that $T(V_0)$ is a subspace of W.
+        
+            To prove that $T(V_0)$ is a subspace of W, we must verify the subspace axioms by using arbitrary, but fixed elements $w_1, w_2 \in T(V_0)$ and scalar $c \in F$. 
+
+            WTS that $cw_1 + w_2 \in T(V_0)$. Let $v_1, v_2$ be arbitrary, but fixed elements in $V_0$ s.t. $T(v_1) = w_1, T(v_2) = w_2$. 
+
+            Since $V_0$ is a subspace of V, $cv_1 + v_2 \in V$. Hence, $T(cv_1 + v_2) = cT(v_1) + T(v_2) = cw_1 + w_2 \in T(V_0)$.
+
+            $T(V_0)$ is closed under vector addition and scalar muliplication.
+
+            Since T is an isomorphism, $T(0) = 0 \in T(V_0)$. 
+            
+            $T(V_0)$ contains the zero vector.
+
+            Hence, $T(V_0)$ is a subspace of W.
+            \qedsymbol
+        \item Prove that $dim(V_0) = dim(T(V_0))$
+
+        FSOC, assume that $dim(V_0) \neq dim(T(V_0))$. 
+        
+        Since $V_0, W_0$ are finite dimensional, we can use the dimension theorem: 
+
+        \begin{equation}
+            nullity(T(V_0)) + rank(T(V_0)) = dim(V_0)
+        \end{equation}
+        Since $T:V \rightarrow W$ is an isomorphism and $V_0$ is a subspace of V, $nullity(T(V_0)) = 0$. 
+
+        So, $rank(T(V_0)) = dim(V_0)$. 
+
+        From the Corollary from Theorem 2.17, we are given that $rank(T(V_0)) = dim(R(T(V_0)) = dim(T(V_0))$. 
+
+        So, $dim(V_0) = dim(T(V_0))$.
+
+        However, that contradicts our assumption that $dim(V_0) \neq dim(T(V_0))$. 
+
+        Hence, in this scenario: $dim(V_0) = dim(T(V_0))$
+        \qedsymbol
+        
+    \end{enumerate}
+    \item (2.4 Problem 19)
+    
+    \begin{enumerate}[label=(\alph*)]
+        \item Compute $[T]_\beta$ \\
+        $\beta = \{ \begin{pmatrix}
+        1 & 0 \\
+        0 & 0\\
+        \end{pmatrix}, \begin{pmatrix}
+        0 & 0 \\
+        1 & 0\\
+        \end{pmatrix}, \begin{pmatrix}
+        0 & 1 \\
+        0 & 0\\
+        \end{pmatrix}, \begin{pmatrix}
+        0 & 0 \\
+        0 & 1\\
+        \end{pmatrix}   \}$ 
+
+        $T(\begin{pmatrix}
+        1 & 0 \\
+        0 & 0\\
+        \end{pmatrix}) = \begin{pmatrix}
+        1 & 0 \\
+        0 & 0\\
+        \end{pmatrix}$
+        = $\begin{pmatrix}
+        1 \\
+        0 \\
+        0 \\
+        0 \\
+        \end{pmatrix}$
+        
+        $T(\begin{pmatrix}
+        0 & 0 \\
+        1 & 0\\
+        \end{pmatrix}) = \begin{pmatrix}
+        0 & 1 \\
+        0 & 0\\
+        \end{pmatrix}$
+        = $\begin{pmatrix}
+        0 \\
+        0 \\
+        1 \\
+        0 \\
+        \end{pmatrix}$
+        
+        $T(\begin{pmatrix}
+        0 & 1 \\
+        0 & 0\\
+        \end{pmatrix}) = \begin{pmatrix}
+        0 & 0 \\
+        1 & 0\\
+        \end{pmatrix}$ 
+        = $\begin{pmatrix}
+        0 \\
+        1 \\
+        0 \\
+        0 \\
+        \end{pmatrix}$
+
+        $T(\begin{pmatrix}
+        0 & 0 \\
+        0 & 1\\
+        \end{pmatrix}) = \begin{pmatrix}
+        0 & 0 \\
+        0 & 1\\
+        \end{pmatrix}$ 
+        = $\begin{pmatrix}
+        0 \\
+        0 \\
+        0 \\
+        1 \\
+        \end{pmatrix}$
+
+        $[T]_\beta = \begin{pmatrix}
+        1 & 0 & 0 & 0\\
+        0 & 0 & 1 & 0\\
+        0 & 1 & 0 & 0\\
+        0 & 0 & 0 & 1\\
+        \end{pmatrix}$ 
+        
+        \item Verify that $L_A\phi_\beta(M) = \phi_\beta T(M)$ for A = $[T]_\beta$ and M = $\begin{pmatrix}
+        1 & 2 \\
+        3 & 4\\
+        \end{pmatrix}$
+
+        T$\begin{pmatrix}
+        1 & 2 \\
+        3 & 4\\
+        \end{pmatrix}$ = $\begin{pmatrix}
+        1 & 3 \\
+        2 & 4\\
+        \end{pmatrix}$ = 1 * $E_{11}$ + 3 * $E_{12} + 2 * E_{21} + 4 * E_{22}$
+
+        $\phi_\beta T(M) = $
+        $\begin{pmatrix}
+        1 \\
+        3 \\
+        2 \\
+        4 \\
+        \end{pmatrix}$
+
+        $L_A\phi_\beta(M) = L_A\phi_\beta(\begin{pmatrix}
+        1 & 2 \\
+        3 & 4\\
+        \end{pmatrix})$ = $\begin{pmatrix}
+        1 & 0 & 0 & 0\\
+        0 & 0 & 1 & 0\\
+        0 & 1 & 0 & 0\\
+        0 & 0 & 0 & 1\\
+        \end{pmatrix}$ $\begin{pmatrix}
+        1 \\
+        2 \\
+        3 \\
+        4 \\
+        \end{pmatrix}$
+        = $\begin{pmatrix}
+        1 \\
+        3 \\
+        2 \\
+        4 \\
+        \end{pmatrix}$
+
+        Hence, $\phi_\beta T(M) = L_A\phi_\beta(M)$
+        
+    \end{enumerate}
+\end{enumerate}
+
+\end{document}
