@@ -1,0 +1,340 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsfonts}
+\usepackage{enumitem}
+\usepackage{amsthm}
+\usepackage{mathabx}
+\usepackage{latexsym}
+\usepackage{amsmath}
+
+\title{Homework 2}
+\author{Jaden Ho}
+\date{October 28, 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Homework 3}
+
+\begin{enumerate}
+    \item (2.1 Problem 1)
+        \begin{enumerate}[label=(\alph*)]
+            \item True. T(cx + y) = cT(x) + T(y) must be held for T to be a linear transformation.
+            \item False. We also must check if T(cx) = cT(x) for some $x \in V$. 
+            \item False, T is one-to-one if and only if $T(x_1) = T(x_2) means x_1 = x_2$
+            \item True. T must contain the zero vector. 
+            \item False, nullity(T) + rank(T) is equal to dim(V). 
+            \item False. Counterexample: T(x, y) = (x, 0). Since set{(1,0), (0, 1)} is linearly independent. T will give you the set {(1, 0), (0, 0)} which is not linearly independent. 
+            \item True. if $(U(v_i) = T(v_i))$ then U = T.  
+            
+        \end{enumerate} 
+    \item (2.1 Problem 6)\\
+        To prove that T is a linear transformation, we must verify the linear transformation axiom. \\
+        Let A, B $\in M_{m \times n}(F)$ and $c \in F$ where 
+        \begin{equation}
+            tr(A) = \sum_{i=1}^{n} A_{ii}
+        \end{equation}
+        and 
+        \begin{equation}
+            tr(B) = \sum_{i=1}^{n} B_{ii}
+        \end{equation}
+
+        \begin{equation}
+            T(cA + B) =  \sum_{i=1}^{n} cA_{ii} + \sum_{i=1}^{n} B_{ii}
+        \end{equation}
+        \begin{equation}
+            = c\sum_{i=1}^{n} A_{ii} + \sum_{i=1}^{n} B_{ii} = cT(A) + T(B)
+        \end{equation}. 
+
+        Hence, T is linear. \qedsymbol{}
+
+    
+            
+    \item (2.1 Problem 9b)
+    $T(a_1, a_2) = (a_1, a^2_1)$ 
+    Let $T(a_1, a_2), T(b_1, b_2) \in T$ s.t. $a_1, b_1, a_2, b_2 \in \mathbb{R}$. 
+
+    Then $T(a_1, a_2) + T(b_1, b_2) = (a_1, a^2_1) + (b_1, b^2_1) = (a_1, a^2_1) + (b_1, b^2_1) = (a_1 + b_1, a^2_1 + b^2_1)$. \\
+    $T(a_1 + b_1, a_2 + b_2) = (a_1 + b_1, (a_2 + b_2)^2) = (a_1 + b_1, a_2^2 + 2a_2b_2 + b_2^2)$ 
+
+    Since, $T(a_1, a_2) + T(b_1, b_2) \neq T(a_1 + b_1, a_2 + b_2)$, T is not linear.
+
+    \item Let T: $\mathbb{Z}_2^2 \xrightarrow{} \mathbb{Z}_2^2$ be the function $T(a, b) = (a, b^2).$ Prove that T is a linear transformation. (Characteristic field 2)
+
+    Let x, y be arbitrary elements in $\mathbb{Z}_2^2$ and a be $\in \mathbb{Z}_2$. Let $x = (x_1, x_2) and y = (y_1, y_2)$ for some $x_1, x_2, y_1, y_2 \in \mathbb{Z}_2$
+    
+    To prove that T is a linear transformation, we must show that T(ax + y) = aT(x) + T(y). 
+
+    T(ax + y) = $T(a(x_1, x_2) + (y_1, y_2)) = T((ax_1 + y_1, ax_2 + y_2)) = (ax_1 + y_1, (ax_2 + y_2)^2) = (ax_1 + y_1, a^2x_2^2 + 2ax_2y_2 + y_2^2)$ 
+
+    aT(x) + T(y) = $a(x_1, x_2^2) + (y_1, y_2^2) = (x_1 + y_1, a^2x_2^2 + y_2^2)$
+
+    Since in $\mathbb{Z}_2$, 2 = 0, $2ax_2y_2 = 0$ because by property of the product of the identity element 0.  
+
+    So, $(ax_1 + y_1, a^2x_2^2 + 2ax_2y_2 + y_2^2) = (ax_1 + y_1, a^2x_2^2 + y_2^2)$. 
+
+    Hence, since T(ax + y) = aT(x) + T(y), T is linear. \qedsymbol
+
+    \item (2.1 Problem 11) Prove that $\exists$ a linear transformation T: $\mathbb{R}^2 \xrightarrow{} \mathbb{R}^3$ s.t. T(1,1) = (1, 0, 2) and T(2,3) = (1, -1, 4). What is T(8,11)? \\
+
+    We know that (1, 1) and (2,3) can form a basis for $\mathbb{R}^2$ since it is LI and spans $\mathbb{R}^2$.
+
+    Let (x, y) $\in \mathbb{R}$ for some x,y $\in \mathbb{R}$. 
+    Then (x,y) = a(1,1) + b(2,3) \\
+    (x,y) = (a + 2b, a + 3b) \\
+    a + 2b = x \\
+    a + 3b = y \\
+    By solving systems of equations, you get: \\
+    b = x - y \\
+    a = 3x - 2y \\
+
+    Thus, (x,y) = (3x - 2y)(1,1) + (y - x)(2,3)
+    T(x,y) = (3x - 2y)T(1,1) + (y - x)T(2,3) 
+    = (3x - 2y)(1, 0, 2) + (y - x)(1, -1, 4) = (2x - y, x - y, 2x) 
+
+    Therefore, there exists a unique linear transformation T: $\mathbb{R}^2 \xrightarrow{} \mathbb{R}^3$ s.t. T(x, y) = (2x - y, x - y, 2x) 
+
+    Computing T(8, 11) = (2(8) - 11, 8 - 11, 2(8)) = (5, -3, 16).
+
+    \qedsymbol{}
+    
+
+    \item (2.1 Problem 12) Is there a linear transformation T: $\mathbb{R}^3 \xrightarrow{} \mathbb{R}^2$ s.t. T(1,0,3) = (1,1) and T(-2, 0, -6) = (2,1). 
+
+    No. Since (-2, 0, -6) = -2(1, 0, 3), then T(-2, 0, -6) must be -2T(1, 0, 3) which is not (2, 1). 
+
+    \item (2.1 Problem 14) Let V and W be vector spaces and T: $V \xrightarrow{} W$ be linear. 
+        \begin{enumerate}[label=(\alph*)]
+            \item Prove that T is one-to-one if and only if T carries linearly independent subsets of V onto linearly independent subsets of W. 
+
+            $\rightarrow$) If T is one-to-one, then T carries linearly independent subsets of V onto linearly independent subsets of W.
+
+            Assume T is one-to-one. WTS T carries L.I. subsets of V onto L.I. subsets of W. 
+    
+            Let S be an linearly independent subset of V which = $\{v_1, v_2,..., v_n\} \in V$. for ALL i = 1, 2, ... , n for some n $\in \mathbb{N} = \{ 0, 1, 2, ...\}$. 
+
+            To show that T(S) $\subseteq W$ is linearly independent, let us consider an arbitrary linear combination T(S) over S that equals 0. i.e. $a_1T(v_1) + a_2T(v_2) + ... + a_nT(v_n) = 0$ for some $a_i \in F$.
+
+            WTS that $a_i (i = 0, 1, 2, ... n) = 0$
+            
+            
+            \begin{equation}
+                T(a_1v_1 + a_2v_2 + ... + a_nv_n) = 0
+            \end{equation}
+            Since the set S is LI, then $a_1v_1 + a_2v_2 + ... + a_nv_n = 0$ so T(0) = 0. 
+            
+            Since T is injective, we can only map only value of T onto 0. So, we can deduce $a_1T(v_1) + a_2T(v_2) + ... + a_nT(v_n) = 0$ s.t. the coefficients $a_i$ = 0. 
+
+            Hence, T(S) is LI, so we are done.  
+
+            
+            $\leftarrow$) Conversely, if T carries L.I. subsets of V onto L.I. subsets of W, then T is one-to-one. \\ 
+
+            FSOC, suppose T is not one-to-one. 
+
+            Then $\exists$ a nonzero v $\in V$ s.t. T(v) = 0. 
+            
+            Let S = {v} which is L.I. since v is nonzero. 
+
+            Since T(v) = $0_W$, v = $\{0_V\}$. 
+
+            However, that is a contradiction since v cannot be a non-zero element if v is supposed to be linearly independent. 
+
+            Hence, v = $0_V$. 
+            \qedsymbol{}
+            
+            
+            \item Suppose that T is one-to-one and that S is a subset of V. Prove that S is a subset of V. Prove that S is linearly independent if and only if T(S) is linearly independent. \\ \\ 
+            Let S = $\{s_1, s_2, ... s_n\}$ for some n $\in \mathbb{N} := \{0, 1, 2, ... \}$  
+            
+            $\rightarrow)$ If S is linearly independent, then T(S) is linearly independent.
+            Assume that S is linearly independent. WTS T(S) is also LI. 
+            
+            To show that the set T(S) is L.I., let us consider an arbitrary linear combination over T(S) that equals 0, i.e. . $a_1T(s_1) + a_2T(s_2) + ... a_nT(s_n) = 0$ with some fixed elements $T(s_i) \in S, a_i \in F$. 
+
+            Since T is linear, we can arrange the equation as such: 
+            $T(a_1s_1 + a_2s_2 + ... + a_ns_n) = 0$
+
+            Since S is LI, $a_i = 0$. 
+            By scalar property of linear transformations we get: \\
+            \begin{equation}
+                a_1T(s_1) + a_2T(s_2) + ... a_nT(s_n) = 0
+            \end{equation}
+            And since $a_i = 0$, T(S) is LI. 
+
+            $\leftarrow)$ Conversely, if T(S) is LI then S is LI.
+            WTS that S is LI. 
+
+            
+            To show that the set S is L.I., let us consider an arbitrary linear combination over S that equals 0, i.e. . $a_1s_1 + a_2s_2 + ... a_ns_n = 0$ with some fixed elements $s_i \in S, a_i \in F$.
+
+            T($a_1s_1 + a_2s_2 + ... a_ns_n$) = 0
+
+            $a_1T(s_1) + a_2T(s_2) + ... a_nT(s_n)$ = 0
+
+            Since we assumed that T(S) is LI, the coefficients $a_i = 0$. Since S share the same coefficients as T(S), we can deduce S is LI. 
+
+            \qedsymbol{}
+
+            \item Suppose $\beta = \{v_1, v_2, ...,v_n\}$ is a basis for V and T is one-to-one and onto. Prove that T($\beta$) = $\{T(v_1), T(v_2),...,T(v_n)\}$ is a basis for W. 
+
+            Since T is one-to-one and $\beta$, then T($\beta$) = $\{T(v_1), T(v_2),...,T(v_n)\}$ is also LI. 
+
+            Since T is onto, T(V) = span(T($\beta$)) = W. 
+            Hence, T($\beta$) is a basis for W. 
+            \qedsymbol{}
+            
+        \end{enumerate} 
+
+    \item (2.1 Problem 16) Let $T:P(R) \xrightarrow{} P(R)$ be defined by $T(f(x)) = f'(x)$. Recall that T is a linear. Prove that T is onto, but not one-to-one.
+
+    WTS that T is onto, but T is not one-to-one. 
+    
+    Proof by counterexample: 
+    Let f(x) = 2x + 1 and g(x) = 2x for some f(x), g(x) $\in P(R)$ \\
+    T(f(x)) = T(g(x)) = 2, however f(x) $\neq$ g(x). 
+    Hence, T is not one-to-one. 
+
+    To show that T is onto, we must show for all arbitary function h(x) $\in$ P(R), that there exists an element t(x) s.t. T(h(x)) = t(x) for some t(x) in P(R). Let's introduce a fixed, but arbitrary function for t(x). 
+    
+    Let t(x) = $a_1 + a_2x + a_3x^2... + a_nx^n$ for some arbitrary elements $a_1, a_2, ... a_n \in \mathbb{R}$\\
+
+    \begin{equation}
+        \int t(x) = a_1x + \frac{a_2}{2}x^2 + \frac{a_3}{3}x^3 + ... + \frac{a_n}{n + 1}x^{n + 1}
+    \end{equation}
+
+    Let h(x) be this function below. 
+    \begin{equation}
+        h(x) = a_1x + \frac{a_2}{2}x^2 + \frac{a_3}{3}x^3 + ... + \frac{a_n}{n + 1}x^{n + 1}
+    \end{equation}
+    T(h(x)) = t(x). 
+
+    Hence, since we got the general form of onto transformations, T is a onto transformation but not a one-to-one transformation.
+    \qedsymbol{}
+
+    \item (2.1 Problem 17) Let V and W be finite-dimensional vector spaces and $T: V \xrightarrow{} W$ be linear. 
+        \begin{enumerate}[label=(\alph*)]
+            \item Prove that if $dim(V) < dim(W)$, then T cannot be onto. 
+
+            FSOC assume that $dim(V) < dim(W)$, but T is onto. Then rank(T) = dim(W). \\ 
+            Then by Dimension Theorem, dim(V) = nullity(T) + rank(T) \\
+            
+            $dim(W) > dim(V) = dim(W) > nullity(T) + rank(T)  \\
+            = dim(W) > dim(W) + nullity(T) $
+            
+            Which means that the dimension of the null space must be negative. However, that is a contradiction since nullity(T) cannot be a negative number.
+
+            Hence, T cannot be onto with those conditions. 
+            \qedsymbol{}
+            \item Prove that if $dim(V) > dim(W)$, then T cannot be one-to-one. \\
+            FSOC assume that $dim(V) > dim(W)$, but T is one-to-one. 
+
+            Then nullity(T) must equal 0 by Theorem 2.4. 
+            $dim(V) > dim(W) = rank(T) + nullity(T) > dim(W) \\ 
+            rank(T) > dim(W)$ 
+
+            However, that is a contradiction since rank(T) is a subspace of W and cannot be greater in dimension than W. 
+
+            Hence, T cannot be one-to-one under these circumstances. \qedsymbol{}
+            
+        \end{enumerate}
+    
+    \item (2.1 Problem 22)
+    Let T: $\mathbb{R}^3 \xrightarrow{} \mathbb{R}$ be linear. Show that there exist scalars a, b, and c such that T(x,y,z) = ax + by + cz for all (x,y,z) $\in \mathbb{R}^3$. Can you generalize this result for T: $F^n \xrightarrow{} F$? State and prove an analogous result for T: $F^n \xrightarrow{} F^m$. \\
+
+    To show that $\exists$ scalars a,b,c s.t. T(x,y,z) = ax + by + cz $\forall$ (x,y,z) $\in \mathbb{R}$, we will let a = (1, 0, 0), b = (0, 1, 0), c = (0, 0, 1). \\
+    T(x(1, 0, 0) + y(0, 1, 0) + z(0, 0, 1)) \\
+    Since T is linear, T(x(1, 0, 0)) + T(y(0, 1, 0)) + T(z(0, 0, 1)) = ax + by + cz. \\
+
+    To generalize this result, T(x) = $x_1v_1 + x_2v_2 + ... + x_nv_n$ for some $x_1, x_2, ..., x_n \in F$ and $v_1, v_2, ..., v_n \in F^n$. 
+
+    Prove an analogous result for T: $F^n \xrightarrow{} F^m$.
+
+    Based on the previous results, we had that: 
+
+    $T(x_1, x_2, ... x_n) = x_1T(e_1) + x_2T(e_2) + ... x_nT(e_n)$ s.t $e_i$ represent the tuples. If we put this in matrix form, we get:
+    
+
+    T: $F^n \rightarrow F^m$ := $\begin{pmatrix}
+    a_{11} ..... a_{1n}\\
+    a_{21} ..... a_{2n}\\
+    . .....\\
+    ....... \\
+    ....... \\
+    a_{m1}.....a_{mn}\\
+    \end{pmatrix}$    
+  $  \begin{pmatrix}
+    x_1 \\
+    x_2 \\
+    . \\
+    . \\
+    . \\
+    x_n \\
+    \end{pmatrix}$
+    = 
+    $\begin{pmatrix}
+    x_1a_{11} ..... x_na_{1n}\\
+    x_1a_{21} ..... x_na_{2n}\\
+    . .....\\
+    ....... \\
+    ....... \\
+    x_1a_{m1}.....x_na_{mn}\\
+    \end{pmatrix}$ 
+
+    This conforms that each component of the output is a linear combination of the input vectors and there are m-tuples.
+    
+    \qedsymbol{}
+    
+    \item (2.1 Problem 38)
+    Prove that if V and W are vector spaces over $\mathbb{Q}$, then any additive function from V into W is a linear transformation. 
+
+    Assume that V and W are vector spaces over $\mathbb{Q}$. 
+
+    WTS any additive function from V to W is a linear transformation. 
+
+    Let $c = \frac{a}{b}$ for some a, b $\in \mathbb{Z}, b \neq 0$. 
+
+    Let T be the transformation from V to W. Since T is additive function, T(x + y) = T(x) + T(y) for some x,y $\in V$ \\ 
+
+    Now we must prove linearity for scalars.
+    \begin{equation}
+        T(cx) = T(\frac{a}{b}x) = T(\frac{1}{b}ax) = T(\frac{1}{b}x + \frac{1}{b}x + ... + \frac{1}{b}x) 
+    \end{equation} 
+    \begin{equation}
+        aT(\frac{1}{b}x) = \frac{a}{b}T(x) = cT(x)
+    \end{equation}
+
+    Hence, T is linear. \qedsymbol{}
+     
+    
+    \item (2.1 Problem 39) 
+    Let T: $C \xrightarrow{} C$ be the function defined by T(z) = $\bar{z}$. Prove that T is additive but not linear. 
+
+    To show that T is additive but not linear we must check the two conditions for linear transformations. 
+    
+    Let z = a + bi and y = c + di, for some a, b, c, d $\in$ F and x, y $\in \mathbb{C}$. 
+
+    T(z + y) = $\bar{(a + c) + (b + d)i}$ = (a + c) - (b + d)i 
+
+    T(z) + T(y) = $\bar{a + bi}$ + $\bar{c + di}$ = a - bi + c - di = 
+    (a + c) - (b + d)i 
+    
+    Hence, T(z + y) = T(z) + T(y) 
+
+    Let x be a scalar in F. 
+    xT(z) = x(a - bi) = ax - bxi 
+    T(xz) = ax - bxi 
+
+    Proof by counterexample: \\
+    Let x = ei for some e $\in F$ s.t. $e \neq 0$. \\
+    T(xz) = T(ei(a + bi)) = T(aei - be) = -be - aei 
+    xT(z) = xT(a + bi) = ei(a - bi) = aei + be
+
+    Since xT(z) $\neq$ T(xz) in this instance, T is not linear. 
+    \qedsymbol
+    
+    
+\end{enumerate}
+
+\end{document}
