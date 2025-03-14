@@ -1,0 +1,1356 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsfonts}
+\usepackage{enumitem}
+\usepackage{amsthm}
+\usepackage{mathabx}
+\usepackage{latexsym}
+\usepackage{amsmath}
+
+\title{Math 115A Homework 5}
+\author{Jaden Ho}
+\date{November 20, 2024}
+
+\begin{document}
+
+\maketitle
+\section{Introduction}
+
+
+\begin{enumerate}
+    \item Problem 2.5 3e) 
+    $\beta = \{x^2-x, x^2+1, x-1 \}$ and $\beta' = \{5x^2-2x -3, -2x^2+5x+5, 2x^2-x-3 \}$
+    
+    $5x^2 -2x - 3 = 5(x^2 - x) + 0(x^2 + 1) + 3(x-1) \xrightarrow{} \begin{pmatrix}
+        5 \\
+        0 \\
+        3 \\
+    \end{pmatrix}$
+
+    $-2x^2+5x+5 = -6(x^2 - x) + 4(x^2 + 1) + 1(x-1) \xrightarrow{} \begin{pmatrix}
+        -6 \\
+        4 \\
+        -1 \\
+    \end{pmatrix}$
+
+    $2x^2-x-3 = 3(x^2 - x) + -1(x^2 + 1) + 2(x-1) \xrightarrow{} \begin{pmatrix}
+        3 \\
+        -1 \\
+        2 \\
+    \end{pmatrix}$
+
+    $[Id]_{\beta'}^{\beta} = \begin{pmatrix}
+        5 & -6 & 3 \\
+        0 & 4 & -1 \\
+        3 & -1 & 2 \\
+    \end{pmatrix}$
+    
+    \item Problem 2.5 4) Let T be the linear operator on $\mathbb{R^2}$ defined by $T(\begin{pmatrix}
+        a\\
+        b \\
+    \end{pmatrix}) = \begin{pmatrix}
+        2a + b \\
+        a - 3b
+    \end{pmatrix}$, let $\beta$ be the standard ordered basis for $R^2$, and let $\beta' = \{\begin{pmatrix}
+        1\\
+        1 \\
+    \end{pmatrix}, \begin{pmatrix}
+        1\\
+        2 \\
+    \end{pmatrix}\}$. Use Theorem 2.23 and the fact that $\begin{pmatrix}
+        1 & 1\\
+        1 & 2 \\
+    \end{pmatrix}^{-1} = \begin{pmatrix}
+        2 & -1\\
+        -1 & 1 \\
+    \end{pmatrix}$ 
+    to find $[T]_{\beta'}$. 
+    
+    $\beta = \{\begin{pmatrix}
+        1\\
+        0 \\
+    \end{pmatrix}, \begin{pmatrix}
+        0\\
+        1 \\
+    \end{pmatrix}\}$
+
+    $\beta' = \{\begin{pmatrix}
+        1\\
+        1 \\
+    \end{pmatrix}, \begin{pmatrix}
+        1\\
+        2 \\
+    \end{pmatrix}\}$
+
+    T($\begin{pmatrix}
+        1\\
+        0 \\
+    \end{pmatrix}$) = $\begin{pmatrix}
+        2 * 1+ 0\\
+        1 - 3 * 0 \\
+    \end{pmatrix} = \begin{pmatrix}
+        2\\
+        1\\
+    \end{pmatrix} = 2 \begin{pmatrix}
+        1\\
+        0\\
+    \end{pmatrix} + 1\begin{pmatrix}
+        0\\
+        1\\
+    \end{pmatrix}$ : $\begin{pmatrix}
+        2\\
+        1\\
+    \end{pmatrix}$
+
+     T($\begin{pmatrix}
+        0\\
+        1 \\
+    \end{pmatrix}$) = $\begin{pmatrix}
+        2 * 0 + 1\\
+        0 - 3 * 1 \\
+    \end{pmatrix} = \begin{pmatrix}
+        2\\
+        -3\\
+    \end{pmatrix} = 2 \begin{pmatrix}
+        1\\
+        0\\
+    \end{pmatrix} + -3\begin{pmatrix}
+        0\\
+        1\\
+    \end{pmatrix} = \begin{pmatrix}
+        1\\
+        -3\\
+    \end{pmatrix}$
+
+    $[T]_\beta = \begin{pmatrix}
+        2 & 1 \\
+        1 & -3 \\
+    \end{pmatrix}$
+
+    Theorem 2.23 states that:
+    \begin{equation}
+        [T]_{\beta'} = Q^{-1}[T]_{\beta}Q
+    \end{equation}
+
+    \begin{equation}
+        [T]_{\beta'} = \begin{pmatrix}
+        2 & -1\\
+        -1 & 1 \\
+    \end{pmatrix} \begin{pmatrix}
+        2 & 1\\
+        1 & -3 \\
+    \end{pmatrix} \begin{pmatrix}
+        1 & 1 \\
+        1 & 2 \\
+    \end{pmatrix}  
+    \end{equation}
+
+    \begin{equation}
+        [T]_{\beta'} = \begin{pmatrix}
+            2 * 2 + -1(1) & 2 * 1 + -1 * -3 \\
+            -1 * 2 + 1 * 1 & -1 * 1+ 1 * -3 \\
+        \end{pmatrix} \begin{pmatrix}
+        1 & 1 \\
+        1 & 2 \\
+    \end{pmatrix}    
+    \end{equation}
+
+    \begin{equation}
+        [T]_{\beta'} = \begin{pmatrix}
+            3 & 5\\
+            -1 & -4 \\
+        \end{pmatrix} \begin{pmatrix}
+        1 & 1 \\
+        1 & 2 \\
+    \end{pmatrix} = \begin{pmatrix}
+        3 * 1 + 5 * 1 & 3 * 1 + 5 * 2 \\
+        -1* 1 + -4 * 1 & -1* 1+ -4 * 2 \\
+    \end{pmatrix} 
+    \end{equation}
+
+    $[T]_{\beta'} = \begin{pmatrix}
+        8 & 13 \\
+        -5 & -9 \\
+    \end{pmatrix}$
+    
+    
+    \item Problem 2.5 6b)
+
+    [$L_A$]$_\beta$ = $\begin{pmatrix}
+        1 & 2 \\
+        2 & 1
+    \end{pmatrix} \begin{pmatrix}
+        1 \\
+        1 \\
+    \end{pmatrix} = \begin{pmatrix}
+        1 + 2 \\
+        2 + 1 \\
+    \end{pmatrix} = \begin{pmatrix}
+        3 \\
+        3 \\
+    \end{pmatrix} = 3\begin{pmatrix}
+        1 \\
+        1 \\
+    \end{pmatrix} \rightarrow \begin{pmatrix}
+        3 \\
+        0 \\
+    \end{pmatrix}$ 
+
+    
+    [$L_A$]$_\beta$ = $\begin{pmatrix}
+        1 & 2 \\
+        2 & 1
+    \end{pmatrix} \begin{pmatrix}
+        1 \\
+        -1 \\
+    \end{pmatrix} = \begin{pmatrix}
+        1 - 2 \\
+        2 - 1 \\
+    \end{pmatrix} = \begin{pmatrix}
+        1 \\
+        -1 \\
+    \end{pmatrix} = -1\begin{pmatrix}
+        1 \\
+        -1 \\
+    \end{pmatrix}$ 
+
+    [L$_A$]$_\beta$ = $\begin{pmatrix}
+        3 & 0 \\
+        0 & -1\\
+    \end{pmatrix}$
+
+    Q will just be the matrix form of the ordered basis vectors of $\beta$: \\
+    Q = $\begin{pmatrix}
+        1 & 1 \\
+        1 & -1 \\
+    \end{pmatrix}$
+    
+    \item 5.1 Problem 2a) T$\begin{pmatrix}
+        a \\
+        b 
+    \end{pmatrix} = \begin{pmatrix}
+        2a - b \\
+        5a + 3b
+    \end{pmatrix}$
+
+    If we put T into matrix form we get: $\begin{pmatrix}
+        2 & -1 \\
+        5 & 3
+    \end{pmatrix}$
+    
+    det(T) = (2 * 3) - (-1 * 5) = 11
+
+    $\begin{pmatrix}
+        2 - \lambda & -1 \\
+        5 & 3 - \lambda
+    \end{pmatrix} = (2 - \lambda)(3-\lambda) -(-1 * 5) = 6 - 2\lambda - 3\lambda + \lambda^2 + 5$ \\ = 
+    $\lambda^2 - 5\lambda + 11$
+
+
+    \item 5.1 Problem 3f) 
+    V = $M_{2 \times 2}(R)$, T($\begin{pmatrix}
+        -7a - 4b + 4c - 4d & b \\
+        -8a - 4b + 5c - 4d & d\\
+    \end{pmatrix}$)
+
+    Let $\beta = \{ \begin{pmatrix}
+        1 & 0 \\
+        1 & 0 \\
+    \end{pmatrix}, \begin{pmatrix}
+        -1 & 2 \\
+        1 & 0 \\
+    \end{pmatrix}, \begin{pmatrix}
+        1 & 0 \\
+        2 & 0 \\
+    \end{pmatrix}, \begin{pmatrix}
+        -1 & 0 \\
+        0 & 2 \\
+    \end{pmatrix} \}$
+    
+    T($\begin{pmatrix}
+        1 & 0 \\
+        1 & 0 \\
+    \end{pmatrix}$) = $\begin{pmatrix}
+        -7*1 + 0 + 4*1 - 0 & 0 \\
+        -8*1 + 0 + 5*1 - 0 & 0
+    \end{pmatrix} = \begin{pmatrix}
+        -3 & 0 \\
+        -3 & 0
+    \end{pmatrix} = -3\begin{pmatrix}
+        -3 & 0 \\
+        -3 & 0
+    \end{pmatrix} + 0 + 0 + 0 \rightarrow \begin{pmatrix}
+        -3 \\
+        0 \\
+        0\\
+        0\\
+    \end{pmatrix}$
+
+    T($\begin{pmatrix}
+        -1 & 2 \\
+        1 & 0 \\
+    \end{pmatrix}$) = $\begin{pmatrix}
+        -1*1 + 0 + 0 + 0 & 2 \\
+        8  - 4(2) + 0 & 0
+    \end{pmatrix} = \begin{pmatrix}
+        -1 & 2 \\
+        0 & 0
+    \end{pmatrix} = 1\begin{pmatrix}
+        -1 & 2 \\
+        0 & 0
+    \end{pmatrix} \rightarrow \begin{pmatrix}
+        0 \\
+        1 \\
+        0\\
+        0\\
+    \end{pmatrix}$
+
+    T($\begin{pmatrix}
+        1 & 0 \\
+        2 & 0 \\
+    \end{pmatrix}$) = $\begin{pmatrix}
+        -7*1 + 4(2) & 0 \\
+        -8(1) + 5(2) & 0
+    \end{pmatrix} = \begin{pmatrix}
+        1 & 0 \\
+        2 & 0
+    \end{pmatrix} = 1\begin{pmatrix}
+        1 & 0 \\
+        2 & 0
+    \end{pmatrix} \rightarrow \begin{pmatrix}
+        0 \\
+        0 \\
+        1\\
+        0\\
+    \end{pmatrix}$
+
+    T($\begin{pmatrix}
+        -1 & 0 \\
+        0 & 2 \\
+    \end{pmatrix}$) = $\begin{pmatrix}
+        -7(-1) + -4(2)  & 0 \\
+        -8(-1) - 4(2) & 2
+    \end{pmatrix} = \begin{pmatrix}
+        -1 & 0 \\
+        0 & 2
+    \end{pmatrix} = 1\begin{pmatrix}
+        -1 & 0 \\
+        0 & 2
+    \end{pmatrix} \rightarrow \begin{pmatrix}
+        0 \\
+        0 \\
+        0\\
+        1\\
+    \end{pmatrix}$ 
+
+    [T]$_\beta = \begin{pmatrix}
+        -3 & 0 & 0 & 0 \\
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 1 & 0 \\
+        0 & 0 & 0 & 1\\
+    \end{pmatrix}$
+
+    Since [T]$_\beta$ is a diagonal matrix, the eigenvalues of T are $-3, 1, 1, 1$. 
+
+    $\beta$ is a basis consisting of eigenvectors of T. 
+
+    \item 5.1 Problem 4cd)
+        \begin{enumerate}[label=(\alph*)]
+            \item[c)] $A = \begin{pmatrix}
+                i & 1 \\
+                2 & -i \\
+            \end{pmatrix}$ for F = C. 
+
+            $det(A - \lambda I) = det\begin{pmatrix}
+                i - \lambda & 1 \\
+                2 & -i - \lambda \\
+            \end{pmatrix}$
+            = $(i - \lambda)(-i - \lambda) - (2) = 0 = 1 - \lambda i + \lambda i + \lambda^2= \lambda^2 - 1 = 0$
+            
+            $\lambda = -1, 1$ 
+
+            For $\lambda  = -1$: 
+
+            $\begin{pmatrix}
+                i - (-1) & 1 \\
+                2 & -i - (-1) \\
+            \end{pmatrix} = \begin{pmatrix}
+                i + 1 & 1 \\
+                2 & -i + 1 \\
+            \end{pmatrix}$
+
+            $\begin{pmatrix}
+                i + 1 & 1 & 0 \\
+                2 & -i + 1 & 0 \\
+            \end{pmatrix}$
+
+            rank = 1, so gemu = 1
+
+            $(i + 1)x + y = 0$ \\
+            $2x + (-i + 1)y = 0$ \\ 
+
+            x = $-\frac{1}{2} + \frac{i}{2}$ \\
+            y = 1
+            
+            $E_{-1} =  span(\begin{pmatrix}
+                -\frac{1}{2} + \frac{i}{2} \\
+                1 \\
+            \end{pmatrix})$
+
+             For $\lambda  = 1$: 
+
+            $\begin{pmatrix}
+                i - (1) & 1 \\
+                2 & -i - (1) \\
+            \end{pmatrix} = \begin{pmatrix}
+                i - 1 & 1 \\
+                2 & -i - 1 \\
+            \end{pmatrix}$
+
+            $\begin{pmatrix}
+                i - 1 & 1 & 0 \\
+                2 & -i - 1 & 0 \\
+            \end{pmatrix}$
+
+            rank = 1, so gemu = 1
+
+            $(i - 1)x + y = 0$ \\
+            $2x + (-i - 1)y = 0$ \\ 
+
+            x = $\frac{1}{2} + \frac{i}{2}$ \\
+            y = 1
+            
+            $E_1 = span(\begin{pmatrix}
+                \frac{1}{2} + \frac{i}{2} \\
+                1 \\
+            \end{pmatrix})$
+
+            Q = $\begin{pmatrix}
+                -\frac{1}{2} + \frac{i}{2} & \frac{1}{2} + \frac{i}{2} \\
+                1 & 1
+            \end{pmatrix}$
+
+            basis = $ \{\begin{pmatrix}
+                -\frac{1}{2} + \frac{i}{2} \\
+                1 \\
+            \end{pmatrix}, \begin{pmatrix}
+                \frac{1}{2} + \frac{i}{2} \\
+                1 \\
+            \end{pmatrix} \}$
+            
+            D = $Q^{-1}AQ$ = $\begin{pmatrix}
+                -1 & 0 \\
+                0 & 1 \\
+            \end{pmatrix}$
+
+        \item[d)] A = $\begin{pmatrix}
+            2 & 0 & -1 \\
+            4 & 1 & -4\\
+            2 & 0 & -1 \\
+        \end{pmatrix}$
+
+        det($A - \lambda I$) = $\begin{pmatrix}
+            2 - \lambda & 0 & -1 \\
+            4 & 1 - \lambda & -4\\
+            2 & 0 & -1 - \lambda\\
+        \end{pmatrix}$ = \\ $0 + (-1)^{2 + 2}(1 - \lambda)det(\begin{pmatrix}
+            2 - \lambda & -1 \\
+            2 & -\lambda - 1
+        \end{pmatrix}) + 0$
+
+        
+        $= (1 - \lambda)((2 - \lambda)(-\lambda - 1) - (-1 * 2)) = \lambda^2 - \lambda = 0$
+
+        Eigenvalues: $\lambda = 0, 1$
+
+        $\lambda = 0$: 
+        
+        $\begin{pmatrix}
+            2 & 0 & -1 \\
+            4 & 1 & -4\\
+            2 & 0 & -1 \\
+        \end{pmatrix} = \begin{pmatrix}
+            2 & 0 & -1 \\
+            4 & 1 & -4\\
+            0 & 0 & 0\\
+        \end{pmatrix} = \begin{pmatrix}
+            1 & 0 & -\frac{1}{2} \\
+            0 & 1 & -2\\
+            0 & 0 & 0\\
+        \end{pmatrix}$
+
+        rank = 2 so dim(ker(A)) = gemu = 1
+        
+        x - $-\frac{1}{2}$ = 0 \\
+        y - 2z = 0 \\
+        z is free
+
+        Let z = 1
+
+         basis for $E_0$ = span($\begin{pmatrix}
+            \frac{1}{2} \\
+            2 \\
+            1 \\
+        \end{pmatrix})$
+
+    $\lambda = 1$: 
+        $\begin{pmatrix}
+            2 - 1 & 0 & -1 \\
+            4 & 1 - 1 & -4\\
+            2 & 0 & -1 - 1\\
+        \end{pmatrix} = \begin{pmatrix}
+            1 & 0 & -1 \\
+            4 & 0 & -4\\
+            2 & 0 & -2\\
+        \end{pmatrix} = \begin{pmatrix}
+            1 & 0 & -1 \\
+            0 & 0 & 0\\
+            0 & 0 & 0\\
+        \end{pmatrix}$
+        
+        rank = 1 so dim(ker(A)) = gemu = 2
+
+        x - z = 0
+
+        y, z are free 
+
+        basis for $E_1$ = span($\begin{pmatrix}
+            0\\
+            1 \\
+            0 \\
+        \end{pmatrix}, \begin{pmatrix}
+            1\\
+            0 \\
+            1 \\
+        \end{pmatrix}$)
+
+        basis = $\{\begin{pmatrix}
+            \frac{1}{2} \\
+            2 \\
+            1 \\
+        \end{pmatrix}, \begin{pmatrix}
+            0\\
+            1 \\
+            0 \\
+        \end{pmatrix}, \begin{pmatrix}
+            1\\
+            0 \\
+            1 \\
+        \end{pmatrix} \}$
+
+        Q = $\begin{pmatrix}
+            \frac{1}{2} & 0 & 1 \\
+            2 & 1 & 0 \\
+            1 & 0 & 1
+        \end{pmatrix}$
+
+        D = $Q^{-1}AQ = \begin{pmatrix}
+            0 & 0 & 0 \\
+            0 & 1 & 0 \\
+            0 & 0 & 1
+        \end{pmatrix}$
+            
+        \end{enumerate}
+
+    \item 5.1 Problem 5ae)
+        \begin{enumerate}[label=(\alph*)]
+            \item[a)] 
+            $V = \mathbb{R}^2 $ and T(a,b) = $(-2a + 3b, -10a + 9b)$
+
+            If we put T(a,b) in matrix form: 
+            
+            Let A = $\begin{pmatrix}
+                -2 & 3 \\
+                -10 & 9 \\
+            \end{pmatrix}$
+
+            To compute the eigenvalues we must put A into the form $(A - \lambda I)v = 0$
+
+            \begin{equation}
+                \begin{pmatrix}
+                -2 - \lambda & 3 \\
+                -10 & 9 - \lambda \\
+            \end{pmatrix}
+            = (-2-\lambda)(9 - \lambda) - 3(-10) = 0
+            \end{equation}
+
+            \begin{equation}
+                -18 + 2\lambda - 9\lambda + \lambda^2 + 30 = 0 
+            \end{equation}
+
+            \begin{equation}
+                \lambda^2 - 7\lambda + 12 = 0 
+            \end{equation}
+
+            \begin{equation}
+                (\lambda - 3)(\lambda - 4) = 0
+            \end{equation}
+
+            $\lambda = 3, 4$
+
+            $\lambda = 3$:
+            \begin{equation}
+                \begin{pmatrix}
+                -2 - 3 & 3 \\
+                -10 & 9 - 3 \\
+                \end{pmatrix} = \begin{pmatrix}
+                -5 & 3 \\
+                -10 & 6 \\
+                \end{pmatrix}
+            \end{equation}
+
+            $-5x + 3y = 0$ \\
+            $-10x + 6y = 0$ \\
+
+            $x = \frac{1}{5}$, $y = \frac{1}{3} \xrightarrow{} \begin{pmatrix}
+                \frac{1}{5} \\
+                \frac{1}{3}
+            \end{pmatrix}$ 
+
+            $\lambda = 4$:
+            \begin{equation}
+                \begin{pmatrix}
+                -2 - 4 & 3 \\
+                -10 & 9 - 4 \\
+                \end{pmatrix} = \begin{pmatrix}
+                -6 & 3 \\
+                -10 & 5 \\
+                \end{pmatrix}
+            \end{equation}
+
+            $-6x + 3y = 0$ \\
+            $-10x + 5y = 0$ \\
+
+            $x = 1$, $y = 2 \xrightarrow{} \begin{pmatrix}
+                1 \\
+                2 \\
+            \end{pmatrix}$
+
+            \begin{equation}
+                \begin{pmatrix}
+                    \frac{1}{5} & 1 \\
+                    \frac{1}{3} & 2 \\
+                \end{pmatrix}
+            \end{equation}
+
+            $\beta = \{(\frac{1}{5}, \frac{1}{3}), (1,2) \}$
+            
+            \item[e)] $V = P_2(R)$ and $T(f(x)) = xf'(x) + f(2)x + f(3)$
+            $T(1) = 1 * 0 + 1 * x + 1 = 1 + x$
+
+            $T(x) = x * 1 + 2x + 3 = 3 + 3x$
+
+            $T(x^2) = x * 2x + 4x + 9 = 9 + 4x + 2x^2$
+
+            $[T]_\beta = \begin{pmatrix}
+                1 & 3 & 9 \\
+                1 & 3 & 4 \\
+                0 & 0 & 2 \\
+            \end{pmatrix}$ 
+
+            To find eigenvalues, we put it into the form; $(A - I\lambda)v = 0$: 
+
+            det $\begin{pmatrix}
+                1 - \lambda & 3 & 9 \\
+                1 & 3 - \lambda & 4 \\
+                0 & 0 & 2 - \lambda\\
+            \end{pmatrix}$ = 0
+        \end{enumerate}
+
+        LHS:
+        \begin{equation}
+            det(A - I\lambda) = 0 - 0 + (2 - \lambda) * det(\begin{pmatrix}
+                1 - \lambda & 3 \\
+                1 & 3 - \lambda \\
+            \end{pmatrix} 
+        \end{equation}
+
+        \begin{equation}
+            (2 - \lambda) * (1 - \lambda)(3 - \lambda) - 3(1) = (2 - \lambda)(3 - \lambda - 3\lambda + \lambda^2 - 3)
+        \end{equation}
+
+        \begin{equation}
+            (2 - \lambda)(\lambda^2 - 4\lambda) = (2 - \lambda)(\lambda)(\lambda - 4) = 0
+        \end{equation}
+
+        $\lambda = 0, 2, 4$
+
+        At $\lambda = 0$: 
+            $\begin{pmatrix}
+                1 - 0 & 3 & 9 \\
+                1 & 3 - 0 & 4 \\
+                0 & 0 & 2 - 0\\
+            \end{pmatrix}$ = $\begin{pmatrix}
+                1 & 3 & 9 \\
+                1 & 3 & 4 \\
+                0 & 0 & 2\\
+            \end{pmatrix}$
+
+            x + 3y + 9z = 0 \\
+            x + 3x + 4z = 0 \\ 
+            2z = 0 \\
+
+            z = 0, x + 3y = 0 \\
+            x = -3y 
+
+            $\begin{pmatrix}
+                -3 \\
+                1 \\
+                0 \\
+            \end{pmatrix}$
+
+        At $\lambda = 2$:
+        $\begin{pmatrix}
+                1 - 2 & 3 & 9 \\
+                1 & 3 - 2 & 4 \\
+                0 & 0 & 2 - 2\\
+            \end{pmatrix}$ = $\begin{pmatrix}
+                -1 & 3 & 9 \\
+                1 & 1 & 4 \\
+                0 & 0 & 0\\
+            \end{pmatrix}$
+
+            $\begin{pmatrix}
+                -1 & 3 & 9 & 0\\
+                1 & 1 & 4 & 0\\
+                0 & 0 & 0 & 0\\
+            \end{pmatrix}$ -$R_1 \xrightarrow{} R_1$ $\begin{pmatrix}
+                1 & -3 & -9 & 0\\
+                1 & 1 & 4 & 0\\
+                0 & 0 & 0 & 0\\
+            \end{pmatrix} R_2 - R_1 \xrightarrow{} R_2$ $\begin{pmatrix}
+                1 & -3 & -9 & 0\\
+                0 & 4 & 13 & 0\\
+                0 & 0 & 0 & 0\\
+            \end{pmatrix}$ $\frac{1}{4}R_2 \xrightarrow{} R_2 \begin{pmatrix}
+                1 & -3 & -9 & 0 \\
+                0 & 1 & \frac{13}{4} & 0 \\
+                0 & 0 & 0 & 0
+            \end{pmatrix}$ $R_1 + 3R_2 \xrightarrow{} R_1$ $\begin{pmatrix}
+                1 & 0 & \frac{3}{4} & 0\\
+                0 & 1 & \frac{13}{4} & 0\\
+                0 & 0 & 0 & 0\\
+            \end{pmatrix}$
+
+            $x = -3/4t, y = -13/4t, z = t$
+            
+            If $z = 4$, then x = -3, y = -13. 
+            
+            $\begin{pmatrix}
+                -3 \\
+                -13\\
+                4 \\
+            \end{pmatrix}$
+
+        At $\lambda = 4$: 
+        $\begin{pmatrix}
+                1 - 4 & 3 & 9 \\
+                1 & 3 - 4 & 4 \\
+                0 & 0 & 2 - 4\\
+            \end{pmatrix}$ = $\begin{pmatrix}
+                -3 & 3 & 9 \\
+                1 & -1 & 4 \\
+                0 & 0 & -2\\
+            \end{pmatrix}$
+
+        $\begin{pmatrix}
+                -3 & 3 & 9 & 0\\
+                1 & -1 & 4 & 0\\
+                0 & 0 & -2 & 0\\
+            \end{pmatrix}$
+
+        -2z = 0, z = 0
+
+        -3x + 3y = 0 \\
+        x - y = 0 \\
+
+        x = 1, y = 1
+
+        $\begin{pmatrix}
+            1 \\
+            1 \\
+            0\\
+        \end{pmatrix}$
+
+        Matrix: 
+        $\begin{pmatrix}
+            -3 & -3 & 1 \\
+            1 & -13 & 1\\
+            0 & 4 & 0\\
+        \end{pmatrix}$
+        
+        $\beta = \{-3 + x, -3 - 13x + 4x^2, 1 + x\}$
+    \item 5.1 Problem 9ab
+    \begin{enumerate}[label=(\alph*)]
+        \item Prove that a linear operator T on a finite-dimensional vector space is invertible if and only if zero is not an eigenvalue of T. 
+
+        $\rightarrow$ Suppose that T on a finite-dimensional vector space is invertible. 
+
+        FSOC, suppose that T is invertible, but zero is an eigenvalue. 
+
+        $det([T] - 0I) = det([T]) = 0$ 
+
+        Which means that A is not invertible, but that is a contradiction. So, zero must not be an eigenvalue in this case.
+
+        $\leftarrow$ If zero is not an eigenvalue of T, then T is invertible. 
+        Contrapositive: If T is not invertible, then zero is an eigenvalue. 
+
+        To show that zero is eigenavalue, let us compute the determinant of the T - $\lambda I_n$  s.t. $\lambda = 0$
+        
+        $det([T] - 0I) = det(T) = 0$. 
+
+        Hence, it follows that 0 is an eigenvalue of T when T is not invertible. 
+
+        \qedsymbol
+
+        \item Let T be an invertible linear operator. Prove that a scalar $\lambda$ is an eigenvalue of T if and only if $\lambda^{-1}$ is an eigenvalue of $T^{-1}$ 
+        
+        $\rightarrow $ Suppose that scalar $\lambda$ is an eigenvalue of T.
+
+        Let v be a vector $\in$ an arbitrary finite dimensional space V s.t. $T(v) = \lambda v$
+
+        WTS $\lambda^{-1}$ is an eigenvalue of $T^{-1}$. 
+
+        $T^{-1}(T(v)) = T^{-1}(\lambda v)$
+
+        $v = T^{-1}(\lambda v) = \lambda T^{-1}(v)$
+
+        $\lambda^{-1}v = T^{-1}v$
+
+        By definition, $\lambda^{-1}$ is an eigenvalue of $T^{-1}$. 
+
+        $\leftarrow $ Suppose that $\lambda^{-1}$ is an eigenvalue of $T^{-1}$, then scalar $\lambda$ is an eigenvalue of T. 
+
+        Let v be an eigenvector of an arbitrary finite dimensional space V s.t. $\lambda^{-1}v = T^{-1}v$. 
+
+        $T^{-1}v = \lambda^{-1}v$
+
+        $T(T^{-1}v) = T(\lambda^{-1}v)$
+
+        $v = \lambda^{-1}T(v)$
+
+        $\lambda v = T(v)$
+
+        By definition, $\lambda$ is an eigenvalue of T.  \qedsymbol{}
+        
+    \end{enumerate}
+
+    \item (Section 5.1 Problem 10) Prove that the eigenvalues of an upper triangular matrix M are the diagonal entries of M. 
+
+    Let M be an $n \times n $ upper triangular matrix i.e. \\
+    M = $\begin{pmatrix}
+        m_{11} & m_{12} & .... &m_{1n} \\
+        0 & m_{22} &............. \\
+        .....&.....&m_{33}&..........\\
+        0 & ...........& .... &m_{nn}
+    \end{pmatrix}$
+
+    To find the eigenvalues of M, we must find the determinant of $M - \lambda I_n$: 
+
+    M = $\begin{pmatrix}
+        m_{11} - \lambda & m_{12} & .... &m_{1n} \\
+        0 & m_{22} - \lambda &............. \\
+        .....&.....&m_{33} - \lambda&..........\\
+        0 & ...........& .... &m_{nn} - \lambda
+    \end{pmatrix}$
+
+    Since $M - \lambda I_n$ is upper-triangular, the determinant is: 
+    \begin{equation}
+        (m_{11} - \lambda)(m_{22} - \lambda) .....(m_{nn} - \lambda) = 0
+    \end{equation}
+
+    And the roots are the diagonals of the upper triangular matrix M so we are done.
+
+    \qedsymbol
+
+    \item (Section 5.1 Problem 13a) Prove that similar matrices have the same characteristic polynomial.
+
+    Similar matrices - Matrices with the same determinants and eigenvalues
+
+    Let A be a matrix in $M_{n \times n}(F)$ for some n $\in \mathbb{N}$. 
+
+    The characteristic polynomial of A is 
+    \begin{equation}
+        \chi_A(\lambda) = det(A - \lambda I_n) 
+    \end{equation}
+
+    To show that a similar matrix of A has the same characteristic polynomial as A, it is sufficient to show that it has the same characteristic polynomial. 
+
+    Let B be a similar matrix to A and let Q be an invertible matrix s.t. $A = Q^{-1}BQ$
+
+    \begin{equation}
+        \chi_{A}(\lambda) = det(A - \lambda I_n) = det(Q^{-1}BQ - Q^{-1}\lambda I_nQ)
+    \end{equation}
+    \begin{equation}
+        = det(Q^{-1} (B - \lambda I_n)Q) = det(Q^{-1})det(B - \lambda I_n)det(Q) = det(B - \lambda I_n)
+    \end{equation}
+
+    Thus, the similar matrix has the same characteristic polynomial as the original matrix. 
+    
+    \qedsymbol
+
+    \item (Section 5.1 18a) 
+    Let T be the linear operator on $M_{n \times n}(R)$ defined by T(A) = $A^T$. 
+
+    Show that $\pm 1$ are the only eigenvalues of T.
+
+    T(A) = $\lambda A$
+    \begin{equation}
+        A^T = \lambda A 
+    \end{equation}
+    \begin{equation}
+        (A = \lambda A^T)^T \rightarrow A = \lambda A^T = \lambda^2 A
+    \end{equation}
+
+    If $A = \lambda^2 A$, then $\lambda$ can only be $\pm 1$. So we are done.
+    \qedsymbol
+
+    \item (Section 5.1 18c) 
+    Let T be the linear operator on $M_{n \times n}(R)$ defined by T(A) = $A^T$. Find an ordered basis $\beta$ for $M_{2 \times 2}(R)$ s.t. $[T]_\beta$ is a diagonal matrix. 
+
+    Let $\beta = \{\begin{pmatrix}
+        1 & 0 \\
+        0 & 0\\
+    \end{pmatrix}, \begin{pmatrix}
+        0 & 1 \\
+        1 & 0\\
+    \end{pmatrix}, \begin{pmatrix}
+        0 & 0 \\
+        0 & 1\\
+    \end{pmatrix}, \begin{pmatrix}
+        0 & 1 \\
+        -1 & 0\\
+    \end{pmatrix}\}$
+
+    T($\begin{pmatrix}
+        1 & 0 \\
+        0 & 0\\
+    \end{pmatrix}) = \begin{pmatrix}
+        1 & 0 \\
+        0 & 0\\
+    \end{pmatrix} = 1\begin{pmatrix}
+        1 & 0 \\
+        0 & 0\\
+    \end{pmatrix} \rightarrow \begin{pmatrix}
+        1 \\
+        0\\
+        0\\
+        0\\
+    \end{pmatrix}$
+
+    T($\begin{pmatrix}
+        0 & 1 \\
+        1 & 0\\
+    \end{pmatrix}) = \begin{pmatrix}
+        0 & 1 \\
+        1 & 0\\
+    \end{pmatrix} = 1\begin{pmatrix}
+        0 & 1 \\
+        1 & 0\\
+    \end{pmatrix} \rightarrow \begin{pmatrix}
+        0 \\
+        1\\
+        0\\
+        0\\
+    \end{pmatrix}$
+
+    T($\begin{pmatrix}
+        0 & 0 \\
+        0 & 1\\
+    \end{pmatrix}) = \begin{pmatrix}
+        0 & 0 \\
+        0 & 1\\
+    \end{pmatrix} = 1\begin{pmatrix}
+        0 & 0 \\
+        0 & 1\\
+    \end{pmatrix} \rightarrow \begin{pmatrix}
+        0 \\
+        0\\
+        1\\
+        0\\
+    \end{pmatrix}$
+
+    T($\begin{pmatrix}
+        0 & 1 \\
+        -1 & 0\\
+    \end{pmatrix}) = \begin{pmatrix}
+        0 & -1 \\
+        1 & 0\\
+    \end{pmatrix} = -1\begin{pmatrix}
+        0 & 1 \\
+        -1 & 0\\
+    \end{pmatrix} \rightarrow \begin{pmatrix}
+        0 \\
+        0\\
+        0\\
+        -1\\
+    \end{pmatrix}$
+
+    $[T]_\beta = \begin{pmatrix}
+        1 & 0 & 0 & 0 \\
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 1 & 0 \\
+        0 & 0 & 0 & -1 
+    \end{pmatrix}$
+
+    \item (Section 5.2 3c)
+    V = $R^3$ and T is defined as $T\begin{pmatrix}
+        a_1 \\
+        a_2 \\
+        a_3 \\
+    \end{pmatrix} = \begin{pmatrix}
+        a_2 \\
+        -a_1 \\
+        2a_3
+    \end{pmatrix}$
+
+    Let us use the standard basis of $R^3$: $\{\begin{pmatrix}
+        1 \\
+        0 \\
+        0 \\
+    \end{pmatrix}, \begin{pmatrix}
+        0 \\
+        1 \\
+        0 \\
+    \end{pmatrix}, \begin{pmatrix}
+        0 \\
+        0 \\
+        1 \\
+    \end{pmatrix} \}$
+
+    T($\begin{pmatrix}
+        1 \\
+        0 \\
+        0 \\
+    \end{pmatrix}$) = $\begin{pmatrix}
+        0 \\
+        -1 \\
+        0 \\
+    \end{pmatrix} \rightarrow \begin{pmatrix}
+        0 \\
+        -1 \\
+        0
+    \end{pmatrix}$
+
+    T($\begin{pmatrix}
+        0 \\
+        1 \\
+        0 \\
+    \end{pmatrix}$) = $\begin{pmatrix}
+        1 \\
+        0 \\
+        0 \\
+    \end{pmatrix} \rightarrow\begin{pmatrix}
+        1 \\
+        0 \\
+        0
+    \end{pmatrix}$
+
+    T($\begin{pmatrix}
+        0 \\
+        0 \\
+        1 \\
+    \end{pmatrix}$) = $\begin{pmatrix}
+        0 \\
+        0 \\
+        2 \\
+    \end{pmatrix} \rightarrow \begin{pmatrix}
+        0 \\
+        0 \\
+        2
+    \end{pmatrix}$
+
+    In matrix form, this matrix can be represented as: 
+    $\begin{pmatrix}
+        0 & 1 & 0 \\
+        -1 & 0 & 0 \\
+        0 & 0 & 2
+    \end{pmatrix}$
+
+    det(T - $\lambda I$) =  $\begin{pmatrix}
+        -\lambda & 1 & 0 \\
+        -1 & -\lambda & 0 \\
+        0 & 0 & 2 - \lambda
+    \end{pmatrix}$ = 0
+
+    \begin{equation}
+        (2 - \lambda)(\lambda^2 - (-1)) = (2 - \lambda)(\lambda^2 + 1) = 0
+    \end{equation}
+
+    T doesn't split over R so it is not diagonalizable. 
+
+    \item (Section 5.2 3d)
+    V = $P_2(R)$ and T is defined by $T(f(x)) = f(0) + f(1)(x + x^2)$
+
+    Let $\beta$ be the standard ordered basis of $P_2(R)$. 
+    
+    T(1) = 1 + 1(x + $x^2)$ = 1 + x + $x^2$ $\rightarrow \begin{pmatrix}
+        1 \\ 
+        1 \\
+        1\\
+    \end{pmatrix}$
+
+    T(x) = 0 + 1(x + $x^2)$ = x + $x^2$ $\rightarrow \begin{pmatrix}
+        0 \\ 
+        1 \\
+        1\\
+    \end{pmatrix}$
+
+    T(x$^2$) = 0 + 1(x + $x^2)$ = x + $x^2$ $\rightarrow \begin{pmatrix}
+        0 \\ 
+        1 \\
+        1\\
+    \end{pmatrix}$
+
+    So [T]$_\beta$ = $\begin{pmatrix}
+        1 & 0 & 0 \\
+        1 & 1 & 1 \\
+        1 & 1 & 1 \\
+    \end{pmatrix}$
+    
+    Characteristic polynomial: det([T]$_\beta$ - $\lambda$I) = 0
+    
+    $\begin{pmatrix}
+        1 -\lambda & 0 & 0 \\
+        1 & 1 - \lambda & 1 \\
+        1 & 1 & 1 - \lambda \\
+    \end{pmatrix} = (1 -\lambda)((1-\lambda)(1-\lambda) - 1 = (1 - \lambda)(\lambda^2 - 2\lambda) = 0$
+
+    $\lambda(1 - \lambda)(\lambda - 2) = 0$
+
+    $\lambda = 0, 1, 2$
+
+    It is diagonalizable with D = $\begin{pmatrix}
+        1 & 0 & 0 \\
+        0 & 2 & 0 \\
+        0 & 0 & 0
+    \end{pmatrix}$
+
+    $\lambda = 1$:
+
+    $\begin{pmatrix}
+        1 - 1 & 0 & 0 \\
+        1 & 1 - 1 & 1 \\
+        1 & 1 & 1 - 1\\
+    \end{pmatrix} = \begin{pmatrix}
+        0 & 0 & 0 \\
+        1 & 0 & 1 \\
+        1 & 1 & 0\\
+    \end{pmatrix}$
+
+    x + z = 0 \\
+    x + y = 0 \\
+    z is free
+
+    z = 1, x = -1, y = 1
+
+    $\begin{pmatrix}
+        -1 \\
+        1 \\
+        1\\
+    \end{pmatrix}$
+
+    $\lambda = 2$:
+
+    $\begin{pmatrix}
+        1 - 2 & 0 & 0 \\
+        1 & 1 - 2 & 1 \\
+        1 & 1 & 1 - 2\\
+    \end{pmatrix} = \begin{pmatrix}
+        -1 & 0 & 0 \\
+        1 & -1 & 1 \\
+        0 & 0 & 0\\
+    \end{pmatrix}$
+
+    x = 0 \\
+    - y + z = 0 \\
+    z is free
+
+    z = 1, x = 0, y = 1
+
+    $\begin{pmatrix}
+        0\\
+        1 \\
+        1\\
+    \end{pmatrix}$
+
+    $\lambda = 0$:
+
+    $\begin{pmatrix}
+        1 & 0 & 0 \\
+        1 & 1 & 1 \\
+        1 & 1 & 1 \\
+    \end{pmatrix} = \begin{pmatrix}
+        1 & 0 & 0 \\
+        1 & 1 & 1 \\
+        0 & 0 & 0\\
+    \end{pmatrix}$
+
+    x = 0 \\
+    y + z = 0\\
+    z is free
+
+    z = 1, x = 0, y = -1
+
+    $\begin{pmatrix}
+        0\\
+        -1 \\
+        1\\
+    \end{pmatrix}$
+
+    Ordered basis can be $\{\begin{pmatrix}
+        -1 \\
+        1 \\
+        1\\
+    \end{pmatrix}, \begin{pmatrix}
+        0\\
+        1 \\
+        1\\
+    \end{pmatrix}, \begin{pmatrix}
+        0\\
+        -1 \\
+        1\\
+    \end{pmatrix}\}$ 
+
+    and [T]$_\beta$ = $\begin{pmatrix}
+        1 & 0 & 0 \\
+        0 & 2 & 0 \\
+        0 & 0 & 0
+    \end{pmatrix}$
+    
+    
+    \item (Section 5.2 7)
+
+    A = $\begin{pmatrix}
+        1 & 4 \\
+        2 & 3 \\
+    \end{pmatrix}$
+
+    \begin{equation}
+        A^k = QD^kQ^{-1}
+    \end{equation}
+
+    det(A - $\lambda$I) = $\begin{pmatrix}
+        1 - \lambda & 4 \\
+        2 & 3 - \lambda \\
+    \end{pmatrix}$ = (1 - $\lambda$)(3 - $\lambda$) - (4 * 2) = \\
+    3 - $\lambda - 3\lambda + \lambda^2$ - 8 = $\lambda^2 - 4\lambda - 5$ = 0
+
+    $\lambda = -1, 5$
+
+    $\lambda = -1$: \\
+    det(A + I) = $\begin{pmatrix}
+        1 + 1 & 4 \\
+        2 & 3 + 1 \\
+    \end{pmatrix} = \begin{pmatrix}
+        2 & 4 \\
+        2 & 4 \\
+    \end{pmatrix}$
+
+    2x + 4y = 0 \\
+    x = -2, y = 1: $\begin{pmatrix}
+        -2 \\
+        1 \\
+    \end{pmatrix}$
+
+    $\lambda = 5$: \\
+    det(A - 5I) = $\begin{pmatrix}
+        1 - 5 & 4 \\
+        2 & 3 - 5 \\
+    \end{pmatrix} = \begin{pmatrix}
+        -4 & 4 \\
+        2 & -2 \\
+    \end{pmatrix}$
+
+    -x + y = 0 \\
+    x = 1, y = 1
+    $\begin{pmatrix}
+        1 \\
+        1 \\
+    \end{pmatrix}$
+
+    Q = $\begin{pmatrix}
+        -2 & 1 \\
+        1 & 1\\
+    \end{pmatrix}$
+    D = $\begin{pmatrix}
+        -1 & 0 \\
+        0 & 5
+    \end{pmatrix}$
+
+\begin{equation} Q^{-1} = 
+    \frac{1}{det(Q)}
+    \begin{pmatrix}
+        2 & 1 \\
+        1 & -1\\
+    \end{pmatrix} = -\frac{1}{3}\begin{pmatrix}
+        1 & -1 \\
+        -1 & -2\\
+    \end{pmatrix} = \begin{pmatrix}
+        -\frac{1}{3} & \frac{1}{3} \\
+        \frac{1}{3} & \frac{2}{3}\\
+    \end{pmatrix}
+\end{equation}
+
+Answer:
+\begin{equation}
+    \begin{pmatrix}
+        1 & 4 \\
+        2 & 3 \\
+    \end{pmatrix}^k = \begin{pmatrix}
+        -2 & 1 \\
+        1 & 1 \\
+    \end{pmatrix}\begin{pmatrix}
+        (-1)^k & 0 \\
+        0 & 5^k \\
+    \end{pmatrix}\begin{pmatrix}
+        -\frac{1}{3} & \frac{1}{3} \\
+        \frac{1}{3} & \frac{2}{3}\\
+    \end{pmatrix}
+\end{equation}
+    
+    \item (Section 5.2 8)
+    Suppose that $A \in M_{n \times n}(F)$ has two distinct eigenvalues, $\lambda_1$ and $\lambda_2$ and that dim($E_{\lambda_{1}})$ = n - 1. Prove that A is diagonalizable.
+
+    WTS dim($E_{\lambda_{1}})$ + dim($E_{\lambda_{2}})$ = n and A is diagonalizable. 
+
+    Since $\lambda_1$ and $\lambda_2$ are distinct e-vals, the eigenbases of both eigenvalues are LI so it follows that the intersection of the two eigenspaces $E_{\lambda_{1}}$ and $E_{\lambda_{2}} = \{0\}$. 
+
+    We know that dim($E_{\lambda_{1}})$ = n - 1, and dim($E_{\lambda_{2}}) \geq 1$. 
+
+    Knowing that 
+
+    dim($E_{\lambda_{1}})$ + $dim(E_{\lambda_{2}}) \leq n$. 
+
+    Since dim($E_{\lambda_{1}})$ = n - 1, we can rewrite the equation as this: 
+    \begin{equation}
+        n - 1 + dim(E_{\lambda_{2}}) \leq n
+    \end{equation}
+    So $dim(E_{\lambda_{2}}) \leq 1$. 
+
+    Since dim($E_{\lambda_{2}}) \geq 1$ and $dim(E_{\lambda_{2}}) \leq 1$, $$dim(E_{\lambda_{2}}) = 1$$ 
+
+    Since the eigenvectors of both eigenspaces are LI, their union will form a basis for $M_{n \times n}(F)$, we can conclude that A is diagonalizable.
+
+   
+    \qedsymbol
+    
+    \item (Section 5.2 10)
+    Let T be a linear operator on a finite-dimensional vector space V with the distinct eigenvalues $\lambda_1, \lambda_2, ..., \lambda_k$ and corresponding multiplicities $m_1, m_2, ...., m_k$. Suppose that $\beta$ is a basis for V such that [T]$_\beta$ is an upper triangular matrix. Prove that the diagonal entries of [T]$_\beta$ are $\lambda_1, \lambda_2, ..., \lambda_k$ and that each $\lambda_i$ occurs $m_i$ times. (1 $\leq$ i $\leq$ k).
+
+    Proof:
+
+    The characteristic polynomial of T is independent of the choice of basis $\beta$. For upper-triangular matrices, we know the determinant is the product of the diagonals so our characteristic polynomial is:
+    \begin{equation}
+        det([T]_\beta - \lambda I) = \chi_T (\lambda) = \prod_{i=1}^{k}(\lambda_i - \lambda)^{m_{i}}
+    \end{equation}
+    for i = 1, 2, 3,..., k.
+
+    We know that the characteristic polynomial of T will split.
+    If we set $\lambda = 0$, we get $\prod_{i=1}^{k}(\lambda)^{m_{i}}$. By the assumption we made that T has distinct eigenvalues $\lambda_1, \lambda_2, ..., \lambda_k$ with respective almus of $m_1, m_2, ...., m_k$, we can deduce that each eigenvalue $\lambda_i$ occurs exactly $m_i$ times on the diagonal entries of $[T]_\beta$. So we are done.
+    \qedsymbol
+    
+    
+\end{enumerate}
+
+\end{document}
